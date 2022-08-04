@@ -183,7 +183,7 @@
             <x-modal
                 identifier="approveArticle"
                 :action="route('admin.articles.approve', $article->slug())"
-                title="Approve article"
+                title="Aprobar artículo"
                 type="update"
             >
                 <p>¿Estás seguro de aprobar este artículo?</p>

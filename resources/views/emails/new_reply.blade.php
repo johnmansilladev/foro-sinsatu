@@ -7,7 +7,7 @@
 @endcomponent
 
 @if ($thread->isAuthoredBy($receiver))
-Please make sure to mark the correct reply as the solution when your question gets answered.
+Por favor, asegúrese de marcar la respuesta correcta como la solución cuando su pregunta sea respondida.
 @endif
 
 @component('mail::button', ['url' => route('thread', $reply->replyAble()->slug())])
@@ -16,7 +16,8 @@ View Thread
 
 @component('mail::subcopy')
 You are receiving this because you are subscribed to this thread.
-[Unsubscribe]({{ route('subscriptions.unsubscribe', $subscription->uuid()->toString()) }}) from this thread.
+Estás recibiendo esto porque te has suscrito a este hilo
+[Desuscríbete]({{ route('subscriptions.unsubscribe', $subscription->uuid()->toString()) }}) de este hilo
 @endcomponent
 
 @endcomponent

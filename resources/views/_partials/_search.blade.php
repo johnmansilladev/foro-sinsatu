@@ -5,7 +5,7 @@
     <div @click.outside="searchVisible = false"
         class="mx-auto max-w-xl transform overflow-hidden rounded-xl bg-white shadow-2xl ring-1 ring-black ring-opacity-5 transition-all">
         <div class="relative">
-            <label for="search" class="sr-only">Search</label>
+            <label for="search" class="sr-only">Buscar</label>
 
             <svg class="pointer-events-none absolute top-3.5 left-4 h-5 w-5 text-gray-400"
                 xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true">

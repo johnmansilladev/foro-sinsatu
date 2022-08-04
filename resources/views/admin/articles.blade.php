@@ -7,7 +7,7 @@
         @include('admin.partials._navigation', [
             'query' => route('admin'),
             'search' => $adminSearch,
-            'placeholder' => 'Search for articles...',
+            'placeholder' => 'Búsqueda de artículos...',
         ])
     </div>
 
@@ -20,10 +20,10 @@
                             <table class="min-w-full divide-y divide-gray-200">
                                 <thead class="bg-gray-50">
                                     <tr>
-                                        <x-tables.table-head>Author</x-tables.table-head>
-                                        <x-tables.table-head>Title</x-tables.table-head>
-                                        <x-tables.table-head>Submitted on</x-tables.table-head>
-                                        <x-tables.table-head class="text-center">View</x-tables.table-head>
+                                        <x-tables.table-head>Autor</x-tables.table-head>
+                                        <x-tables.table-head>Título</x-tables.table-head>
+                                        <x-tables.table-head>Enviado el</x-tables.table-head>
+                                        <x-tables.table-head class="text-center">Ver</x-tables.table-head>
                                     </tr>
                                 </thead>
                                 <tbody class="bg-white divide-y divide-gray-200">

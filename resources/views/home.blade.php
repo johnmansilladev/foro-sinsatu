@@ -1,9 +1,9 @@
 @extends('layouts.base', ['bodyClass' => 'home', 'disableFooterAds' => true])
 
-@push('meta')
+<!-- @push('meta')
     <meta name="google-site-verification" content="LR29frqES-MZYtn3iZ6PtobclBfThr83rlNF4huiu0s" />
 @endpush
-
+ -->
 @section('body')
     @include('layouts._alerts')
 
@@ -78,14 +78,14 @@
 
         <div class="flex justify-center">
             <x-buttons.primary-cta href="{{ route('articles') }}" class="w-full lg:w-auto">
-                View all articles
+                Ver todos los artículos
             </x-buttons.primary-cta>
         </div>
     </section>
     <!-- /Popular articles -->
 
     <!-- Search -->
-    <section class="mt-12 lg:mt-24">
+    <!-- <section class="mt-12 lg:mt-24">
         <div class="bg-lio-500 text-white -skew-y-1">
             <div class="container mx-auto skew-y-1">
                 <div class="flex flex-col items-center py-10 text-center lg:py-20">
@@ -128,7 +128,7 @@
                 </div>
             </div>
         </div>
-    </section>
+    </section> -->
     <!-- /Search -->
 
     <!-- Help others -->
@@ -161,7 +161,7 @@
     <!-- /Help others -->
 
     <!-- Sinsatu in numbers -->
-    <section class="mt-12 container mx-auto px-4 lg:mt-40 lg:px-16">
+    <!-- <section class="mt-12 container mx-auto px-4 lg:mt-40 lg:px-16">
         <h2 class="text-4xl leading-tight font-bold text-center text-gray-900 mb-6 lg:mb-12">
             Foro SINSATU en números
         </h2>
@@ -179,6 +179,6 @@
                 <x-number-block title="Replies" :total="$totalReplies" :background="asset('images/replies.png')" />
             </div>
         </div>
-    </section>
+    </section> -->
     <!-- /Sinsatu in numbers -->
 @endsection

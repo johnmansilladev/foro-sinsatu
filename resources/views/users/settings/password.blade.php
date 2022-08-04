@@ -9,7 +9,7 @@
                         Password
                     </h2>
                     <p class="mt-1 text-sm leading-5 text-gray-500">
-                        Update the password used for logging into your account.
+                    Actualice la contraseña utilizada para acceder a su cuenta.
                     </p>
                 </div>
 
@@ -23,13 +23,13 @@
                     @endif
 
                     <div class="col-span-12">
-                        <x-forms.label for="password">New Password</x-forms.label>
+                        <x-forms.label for="password">Nueva contraseña</x-forms.label>
 
                         <x-forms.inputs.password name="password" required />
                     </div>
 
                     <div class="col-span-12">
-                        <x-forms.label for="password_confirmation">Confirm New Password</x-forms.label>
+                        <x-forms.label for="password_confirmation">Confirmar contraseña</x-forms.label>
 
                         <x-forms.inputs.password name="password_confirmation" required />
                     </div>
@@ -38,7 +38,7 @@
 
             <div class="px-4 py-3 bg-gray-50 text-right sm:px-6">
                 <x-buttons.primary-button type="submit">
-                    Update Password
+                    Actualizar password
                 </x-buttons.primary-button>
             </div>
         </div>

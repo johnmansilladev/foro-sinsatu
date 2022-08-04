@@ -35,6 +35,6 @@
     </div>
 
     <x-buttons.arrow-button href="{{ route('articles.show', $article->slug()) }}" class="items-end py-2">
-        Read article
+        Leer artículo
     </x-buttons.arrow-button>
 </div>

@@ -1,9 +1,9 @@
 @component('mail::message')
 
-Great news! Your article: **{{ $article->title() }}** has been approved and is now live on Laravel.io.
+¡Una gran noticia! Su artículo: **{{ $article->title() }}** ha sido aprobado y ya está disponible en foro.sinsatu.com.
 
 @component('mail::button', ['url' => route('articles.show', $article->slug())])
-View Article
+Ver artículo
 @endcomponent
 
 @endcomponent

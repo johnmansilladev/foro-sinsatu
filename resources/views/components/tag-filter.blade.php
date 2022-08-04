@@ -15,7 +15,7 @@
     <div class="border-b">
         <div class="p-4">
             <div class="flex justify-between items-center mb-2" x-cloak>
-                <h3 class="text-3xl font-semibold">Filter tag</h3>
+                <h3 class="text-3xl font-semibold">Filtros de tags</h3>
 
                 <button @click="activeModal = false">
                     <x-heroicon-o-x class="w-6 h-6" />
@@ -23,7 +23,7 @@
             </div>
 
             <div class="text-gray-800 mb-3">
-                <p>Select a tag below to filter the results</p>
+                <p>Selecciona un tag para filtrar</p>
             </div>
 
             <div class="relative">
@@ -65,11 +65,11 @@
 
     <div class="flex gap-x-2 justify-end p-4">
         <x-buttons.secondary-button @click="activeModal = false">
-            Cancel
+            Cancelar
         </x-buttons.secondary-button>
 
         <x-buttons.secondary-button href="{{ route($cancelRoute) }}" x-show="activeTag">
-            Remove filter
+            Eliminar filtro
         </x-buttons.secondary-button>
     </div>
 </div>

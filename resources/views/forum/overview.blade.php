@@ -1,5 +1,5 @@
 @php($subTitle = isset($activeTag) ? $activeTag->name() : null)
-@title('Forum' . (isset($subTitle) ? ' > ' . $subTitle : ''))
+@title('Foro Sinsatu' . (isset($subTitle) ? ' > ' . $subTitle : ''))
 @canonical($canonical)
 
 @extends('layouts.default', ['hasShadow' => true])
@@ -11,17 +11,17 @@
                 <div class="flex justify-between items-center lg:block">
                     <div class="flex justify-between items-center">
                         <h1 class="text-4xl text-gray-900 font-bold">
-                            Forum
+                            Foro
                         </h1>
 
                         <x-buttons.primary-button href="{{ route('threads.create') }}" class="hidden lg:block">
-                            Create Thread
+                            Crear hilo
                         </x-buttons.primary-button>
                     </div>
 
                     <div class="flex items-center justify-between lg:mt-6">
                         <h3 class="text-gray-800 text-xl font-semibold">
-                            {{ number_format($threads->total()) }} Threads
+                            {{ number_format($threads->total()) }} Hilos
                         </h3>
 
                         <div class="hidden lg:flex gap-x-2">
@@ -30,7 +30,7 @@
                             <div class="shrink-0">
                                 <x-buttons.secondary-button class="flex items-center gap-x-2" @click="activeModal = 'tag-filter'">
                                     <x-heroicon-o-filter class="w-5 h-5" />
-                                    Tag filter
+                                    Filtros de tags
                                 </x-buttons.secondary-button>
                             </div>
                         </div>
@@ -38,7 +38,7 @@
 
                     @isset ($activeTag)
                         <div class="hidden lg:flex gap-x-4 items-center mt-4 pt-5 border-t">
-                            Filter applied
+                            Filtros aplicados
                             <x-tag>
                                 <span class="flex items-center gap-x-1">
                                     {{ $activeTag->name() }}
@@ -52,21 +52,21 @@
                 </div>
 
                 <div class="pt-2 lg:hidden">
-                    @include('layouts._ads._forum_sidebar')
+                   <!--  @include('layouts._ads._forum_sidebar')
 
                     <div class="flex justify-center mt-6">
                         <x-buttons.dark-cta>
                             <x-heroicon-s-rss class="w-6 h-6 mr-2" />
                             RSS Feed
                         </x-buttons.dark-cta>
-                    </div>
+                    </div> -->
 
                     <div class="flex gap-x-4 mt-10">
                         <div class="w-1/2">
                             <x-buttons.secondary-cta class="w-full" @click="activeModal = 'tag-filter'">
                                 <span class="flex items-center gap-x-2">
                                     <x-heroicon-o-filter class="w-5 h-5" />
-                                    Tag filter
+                                    Filtro de tags
                                 </span>
                             </x-buttons.secondary-cta>
                         </div>
@@ -111,13 +111,12 @@
             </div>
 
             <div class="lg:w-1/4">
-                <!-- <div class="hidden lg:block">
+                <!--<div class="hidden lg:block">
                     @include('layouts._ads._forum_sidebar')
-                </div>
- -->
+                </div>-->
                 <div class="bg-white shadow rounded-md mt-6">
-                    <h3 class="text-xl font-semibold px-5 pt-5">
-                        Thanks to our community
+                    <h3 class="text-l font-semibold px-5 pt-5">
+                        ¡Gracias comunidad!
                     </h3>
 
                     <ul>
@@ -155,7 +154,7 @@
                     </ul>
 
                     <p class="px-5 pt-3 pb-5 text-center text-xs text-gray-700">
-                        Solutions given in the past year.
+                        Soluciones dadas en el último año.
                     </p>
                 </div>
 
@@ -163,12 +162,12 @@
                     <x-moderators :moderators="$moderators" />
                 </div>
 
-                <div class="hidden lg:block mt-6">
+                <!-- <div class="hidden lg:block mt-6">
                     <x-buttons.dark-cta class="w-full" href="{{ url('/forum/feed') }}">
                         <x-heroicon-s-rss class="w-6 h-6 mr-2" />
                         RSS Feed
                     </x-buttons.dark-cta>
-                </div>
+                </div> -->
             </div>
         </div>
     </div>

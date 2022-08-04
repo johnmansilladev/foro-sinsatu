@@ -18,7 +18,7 @@ it('contains a note about solutions when the receiver is the thread author', fun
     $email = (new NewReplyEmail($reply, $subscription, $thread->author()))->render();
 
     expect($email)
-        ->toContain('Please make sure to mark the correct reply as the solution when your question gets answered.');
+        ->toContain('Por favor, asegúrese de marcar la respuesta correcta como la solución cuando su pregunta sea respondida.');
 });
 
 it('misses the note about solutions when the receiver is not the thread author', function () {
@@ -30,5 +30,5 @@ it('misses the note about solutions when the receiver is not the thread author',
     $email = (new NewReplyEmail($reply, $subscription, $user))->render();
 
     expect($email)->not
-        ->toContain('Please make sure to mark the correct reply as the solution when your question gets answered.');
+        ->toContain('Por favor, asegúrese de marcar la respuesta correcta como la solución cuando su pregunta sea respondida.');
 });

@@ -6,10 +6,10 @@
             <div class="bg-white py-6 px-4 space-y-6 sm:p-6">
                 <div>
                     <h2 id="profile_settings_heading" class="text-lg leading-6 font-medium text-gray-900">
-                        Profile
+                        Perfil
                     </h2>
                     <p class="mt-1 text-sm leading-5 text-gray-500">
-                        Update your profile information.
+                        Actualiza tu información
                     </p>
                 </div>
 
@@ -22,6 +22,12 @@
                         </div>
 
                         <div class="space-y-1">
+                            <x-forms.label for="Profesion"/>
+
+                            <x-forms.inputs.input name="profession" />
+                        </div>
+
+                        <div class="space-y-1">
                             <x-forms.label for="bio"/>
 
                             <x-forms.inputs.textarea name="bio" rows="3" maxlength="160">
@@ -29,14 +35,14 @@
                             </x-forms.inputs.textarea>
 
                             <span class="mt-2 text-sm text-gray-500">
-                                The user bio is limited to 160 characters.
+                                La biografía del usuario está limitada a 160 caracteres.
                             </span>
                         </div>
                     </div>
 
                     <div class="grow space-y-1 lg:grow-0 lg:shrink-0">
                         <p class="block text-sm leading-5 font-medium text-gray-700" aria-hidden="true">
-                            Profile Image
+                            Foto de perfil
                         </p>
 
                         <div class="flex items-center mt-2">
@@ -44,11 +50,12 @@
                                 <x-avatar :user="Auth::user()" class="h-32 w-32 mt-4" unlinked />
 
                                 <span class="mt-4 inline-block text-sm text-gray-500">
-                                    Change your avatar for
+                                    <!-- Change your avatar for
 
                                     <a href="https://github.com/{{ Auth::user()->githubUsername() }}" class="text-lio-700">
                                         your GitHub profile
-                                    </a>.
+                                    </a>. -->
+                                    <input type="file">
                                 </span>
                             </div>
                         </div>
@@ -63,10 +70,10 @@
 
                         @unless(Auth::user()->hasVerifiedEmail())
                             <span class="mt-2 text-sm text-gray-500">
-                                This email address is not verified yet.
+                                Este email aún no ha sido verificado
 
                                 <a href="{{ route('verification.notice') }}" class="text-lio-500">
-                                    Resend verification email.
+                                    Reenviar verificacion de email
                                 </a>
                             </span>
                         @endunless
@@ -85,13 +92,19 @@
                     </div>
 
                     <div class="col-span-12 sm:col-span-6">
-                        <x-forms.label for="twitter">Twitter handle</x-forms.label>
+                        <x-forms.label for="twitter">Twitter</x-forms.label>
 
                         <x-forms.inputs.input name="twitter" :value="Auth::user()->twitter()" prefix-icon="heroicon-o-at-symbol" class="nav-search" />
 
                         <span class="mt-2 text-sm text-gray-500">
-                            Enter your Twitter handle without the leading @ symbol
+                        Introduzca su nombre de usuario de Twitter sin el símbolo @
                         </span>
+                    </div>
+
+                    <div class="col-span-12 sm:col-span-6">
+                        <x-forms.label for="LinkedIn">LinkedIn</x-forms.label>
+
+                        <x-forms.inputs.input name="linkedIn" prefix-icon="heroicon-o-globe-alt" />
                     </div>
                 </div>
             </div>
@@ -99,7 +112,7 @@
             <div class="px-4 py-3 bg-gray-50 text-right sm:px-6">
                 <span class="inline-flex rounded-md shadow-sm">
                     <x-buttons.primary-button type="submit">
-                        Update Profile
+                        Actualizar perfil
                     </x-buttons.primary-button>
                 </span>
             </div>

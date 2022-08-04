@@ -1,13 +1,13 @@
 @component('mail::message')
 
-The thread "{{ $thread->subject() }}" was deleted by a moderator for the following reasons:
+El hilo "{{ $thread->subject() }}" ha sido eliminado por un moderador por las siguientes razones:
 
 @component('mail::panel')
 {{ $reason }}
 @endcomponent
 
-Please make sure your thread follows <a href="{{ route('rules') }}">our rules</a>.
+Por favor, asegúrate de seguir <a href="{{ route('rules') }}">nuestras reglas</a>.
 
-Thanks,<br>
+Gracias,<br>
 {{ config('app.name') }}
 @endcomponent

@@ -27,17 +27,17 @@
                         <ul class="flex flex-col px-4 mb-2 gap-y-2 lg:flex-row lg:mb-0 lg:gap-6">
                             <li class="rounded lg:mb-0 lg:hover:bg-gray-100 @if(is_active(['forum', 'threads*', 'thread'])) bg-gray-100 @endif">
                                 <a href="{{ route('forum') }}" class="inline-block w-full px-2 py-1">
-                                    Forum
+                                    Foros
                                 </a>
                             </li>
 
                             <li class="rounded lg:mb-0 lg:hover:bg-gray-100 @if(is_active(['articles', 'articles*'])) bg-gray-100 @endif">
                                 <a href="{{ route('articles') }}" class="inline-block w-full px-2 py-1">
-                                    Articles
+                                    Artículos
                                 </a>
                             </li>
 
-                            <li class="rounded lg:mb-0 lg:hover:bg-gray-100">
+                            <!-- <li class="rounded lg:mb-0 lg:hover:bg-gray-100">
                                 <a href="https://paste.laravel.io" class="inline-block w-full px-2 py-1">
                                     Pastebin
                                 </a>
@@ -147,7 +147,7 @@
                                         </ul>
                                     </div>
                                 </div>
-                            </li>
+                            </li> -->
                         </ul>
                     </div>
                 </div>
@@ -164,7 +164,7 @@
                         @if (Auth::guest())
                             <li class="w-full rounded text-center lg:hover:bg-gray-100">
                                 <a href="{{ route('register') }}" class="inline-block w-full  p-2.5">
-                                    Register
+                                    Registrarse
                                 </a>
                             </li>
 

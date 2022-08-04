@@ -16,7 +16,7 @@ final class MentionEmail extends Mailable
 
     public function build()
     {
-        return $this->subject("Mentioned: {$this->mentionAble->mentionedIn()->subject()}")
+        return $this->subject("Mencionado: {$this->mentionAble->mentionedIn()->subject()}")
             ->markdown('emails.mention');
     }
 }

@@ -43,7 +43,7 @@
         @if ($thread->isSolutionReply($reply))
             <span class="flex items-center gap-x-2 font-medium text-lio-500">
                 <x-heroicon-o-badge-check class="w-6 h-6" />
-                <span class="hover:underline">Solved</span>
+                <span class="hover:underline">Resuelto</span>
             </span>
         @endif
     </div>

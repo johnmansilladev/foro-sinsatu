@@ -6,6 +6,8 @@ use App\Http\Controllers\Articles\ArticlesController;
 use App\Http\Controllers\Articles\AuthoredArticles;
 use App\Http\Controllers\Auth\ForgotPasswordController;
 use App\Http\Controllers\Auth\GithubController;
+use App\Http\Controllers\Auth\FacebookController;
+use App\Http\Controllers\Auth\GoogleController;
 use App\Http\Controllers\Auth\LoginController;
 use App\Http\Controllers\Auth\RegisterController;
 use App\Http\Controllers\Auth\ResetPasswordController;
@@ -60,8 +62,15 @@ Route::get('email/verify/{id}/{hash}', [VerificationController::class, 'verify']
 Route::post('email/resend', [VerificationController::class, 'resend'])->name('verification.resend');
 
 // Social authentication
+//With Github
 Route::get('login/github', [GithubController::class, 'redirectToProvider'])->name('login.github');
 Route::get('auth/github', [GithubController::class, 'handleProviderCallback']);
+
+//With Facebook
+Route::get('login/facebook', [FacebookController::class, 'login'])->name('login.facebook');
+
+//With Google
+Route::get('login/google', [GoogleController::class, 'login'])->name('login.google');
 
 // Users
 Route::redirect('/dashboard', '/user');

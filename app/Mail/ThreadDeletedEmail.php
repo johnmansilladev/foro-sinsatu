@@ -13,7 +13,7 @@ final class ThreadDeletedEmail extends Mailable
 
     public function build()
     {
-        return $this->subject('Your thread on Laravel.io was removed')
+        return $this->subject('Tu artículo en foro.sinsatu.com  ha sido eliminado')
             ->markdown('emails.thread_deleted');
     }
 }

@@ -1,4 +1,4 @@
-@title('Register')
+@title('Regístrate')
 
 @extends('layouts.small')
 
@@ -50,7 +50,7 @@
         </x-buk-form>
     @endif -->
     <div>
-    <x-buk-form action="{{ route('register.post') }}" method="POST" class="space-y-6">
+    <x-buk-form action="{{ route('register.post') }}" method="POST" class="space-y-3">
             <div>
                 <x-forms.label for="nombre" />
 
@@ -77,13 +77,48 @@
 
             <div class="flex items-center">
                 <x-forms.inputs.checkbox name="terms" id="terms">
-                    Acepto los<a href="{{ route('terms') }}" class="text-lio-700" target="_blank">Términos y condiciones</a> and <a href="{{ route('privacy') }}" class="text-lio-700" target="_blank">Privacy Policy</a>
+                    Acepto los<a href="{{ route('terms') }}" class="text-lio-700" target="_blank">Términos y condiciones</a> and <a href="{{ route('privacy') }}" class="text-lio-700" target="_blank">Políticas de privacidad</a>
                 </x-forms.inputs.checkbox>
             </div>
 
             <x-buttons.primary-button type="submit" fullWidth>
                 Registrarse
             </x-buttons.primary-button>
+            <div class="relative">
+            <div class="absolute inset-0 flex items-center">
+                <div class="w-full border-t border-gray-300"></div>
+            </div>
+
+            <div class="relative flex justify-center text-sm">
+                <span class="px-2 bg-white text-gray-500">
+                    O registrarse con
+                </span>
+            </div>
+        </div>
+            <div>
+                <x-buttons.secondary-button href="{{ route('login.google')}}" fullWidth class="bg-cyan-700 hover:bg-cyan-800">
+                    <span class="flex items-center gap-x-2">
+                        <x-icon-github class="h-5 w-5 text-white" />
+                        <span class="text-white">LinkedIn</span>
+                    </span>
+                </x-buttons.secondary-button>
+            </div>
+            <div>
+                <x-buttons.secondary-button href="{{ route('login.google')}}" fullWidth class="bg-red-700 hover:bg-red-800">
+                    <span class="flex items-center gap-x-2">
+                        <x-icon-github class="h-5 w-5 text-white" />
+                        <span class="text-white">Google</span>
+                    </span>
+                </x-buttons.secondary-button>
+            </div>
+            <div>
+                <x-buttons.secondary-button href="{{ route('login.facebook')}}" fullWidth class="bg-blue-700 hover:bg-blue-800">
+                    <span class="flex items-center gap-x-2 ">
+                        <x-icon-facebook class="h-5 w-5 text-white" />
+                        <span class="text-white">Facebook</span>
+                    </span>
+                </x-buttons.secondary-button>
+            </div>
         </x-buk-form>
     </div>
 @endsection

@@ -23,7 +23,7 @@
             @auth
                 @if (! $thread->isSolved() && $thread->isAuthoredBy(Auth::user()))
                     <x-primary-info-panel icon="heroicon-o-badge-check">
-                        Please make sure to mark the correct reply as the solution when your question gets answered.
+                    Por favor, asegúrese de marcar la respuesta correcta como la solución cuando su pregunta sea respondida.
                     </x-primary-info-panel>
                 @endif
             @endauth
@@ -91,7 +91,9 @@
 
                                 <div class="flex justify-between items-start mt-4 gap-x-8 lg:items-center">
                                     <p>
-                                        Please make sure you've read our <a href="{{ route('rules') }}" class="text-lio-500 border-b-2 pb-0.5 border-lio-100 hover:text-lio-600">rules</a> before replying to this thread.
+                                        Por favor, asegúrate de haber leído nuestras 
+                                        <a href="{{ route('rules') }}" class="text-lio-500 border-b-2 pb-0.5 border-lio-100 hover:text-lio-600">reglas</a> 
+                                        antes de responder este hilo.
                                     </p>
                                 </div>
                             </form>
@@ -101,16 +103,16 @@
             @else
                 @guest
                     <p class="text-center py-8">
-                        <a href="{{ route('login') }}" class="text-lio-500 border-b-2 pb-0.5 border-lio-100 hover:text-lio-600">Sign in</a> to participate in this thread!
+                        <a href="{{ route('login') }}" class="text-lio-500 border-b-2 pb-0.5 border-lio-100 hover:text-lio-600">¡Inicia sesión</a> para comentar este hilo!
                     </p>
                 @else
                     <x-info-panel>
-                        <p>You'll need to verify your account before participating in this thread.</p>
+                        <p>Debes verificar tu cuenta antes de participar en este hilo/p>
 
                         <form action="{{ route('verification.resend') }}" method="POST" class="block">
                             @csrf
                             <x-buttons.arrow-button type="submit" class="shrink-0">
-                                Click here to resend the verification link.
+                                Click aquí para reeenviar link de verificación
                             </x-buttons.arrow-button>
                         </form>
                     </x-info-panel>
@@ -119,7 +121,7 @@
         </div>
 
         <div class="w-full lg:w-1/4">
-            @include('layouts._ads._forum_sidebar')
+           <!--  @include('layouts._ads._forum_sidebar') -->
 
             <div class="mt-6">
                 <x-users.profile-block :user="$thread->author()" />

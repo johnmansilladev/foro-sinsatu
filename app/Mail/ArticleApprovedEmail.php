@@ -13,7 +13,7 @@ final class ArticleApprovedEmail extends Mailable
 
     public function build()
     {
-        return $this->subject('Your article has been approved')
+        return $this->subject('Tu artículo ha sido aprobado')
             ->markdown('emails.article_approved');
     }
 }

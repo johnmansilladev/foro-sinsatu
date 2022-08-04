@@ -13,15 +13,15 @@
     <div class="bg-lio-100">
         <div class="max-w-7xl mx-auto py-12 px-4 sm:px-6 lg:py-20 lg:px-8 lg:flex lg:items-center lg:justify-between">
             <h2 class="text-2xl font-extrabold tracking-tight text-gray-900 md:text-3xl">
-                <span class="block">Got some knowledge to share?</span>
-                <span class="block">
-                    Share your article with <a href="https://twitter.com/laravelio" class="text-lio-500 hover:text-lio-600 hover:underline">our 45,000 Twitter followers</a>.
-                </span>
+                <span class="block">¿Algún conocimiento por compartir?</span>
+                <!-- <span class="block">
+                    Comparte tu artículo con <a href="https://twitter.com/laravelio" class="text-lio-500 hover:text-lio-600 hover:underline">our 45,000 Twitter followers</a>.
+                </span> -->
             </h2>
             <div class="mt-8 flex lg:mt-0 lg:shrink-0">
                 <div class="inline-flex rounded-md shadow">
                     <x-buttons.primary-button href="{{ route('articles.create') }}" class="px-5 py-3 text-base font-medium">
-                        Share Your Article
+                        Comparte tu artículo
                     </x-buttons.primary-button>
                 </div>
             </div>
@@ -34,7 +34,7 @@
                 <div class="flex justify-between items-center lg:block">
                     <div class="flex justify-between items-center">
                         <h1 class="text-4xl text-gray-900 font-bold">
-                            Articles
+                            Artículos
                         </h1>
                     </div>
 
@@ -49,7 +49,7 @@
                             <div class="shrink-0">
                                 <x-buttons.secondary-button class="flex items-center gap-x-2" @click="activeModal = 'tag-filter'">
                                     <x-heroicon-o-filter class="w-5 h-5" />
-                                    Tag filter
+                                    Filstro de tags
                                 </x-buttons.secondary-button>
                             </div>
                         </div>
@@ -78,14 +78,14 @@
                             <x-buttons.secondary-cta class="w-full" @click="activeModal = 'tag-filter'">
                                 <span class="flex items-center gap-x-2">
                                     <x-heroicon-o-filter class="w-5 h-5" />
-                                    Tag filter
+                                    Filtro de tags
                                 </span>
                             </x-buttons.secondary-cta>
                         </div>
 
                         <div class="w-1/2">
                             <x-buttons.primary-cta href="{{ route('articles.create') }}" class="w-full">
-                                Create Article
+                                Crea un artículo
                             </x-buttons.primary-cta>
                         </div>
                     </div>
@@ -142,7 +142,7 @@
 
                 <div class="bg-white shadow rounded-md mt-6">
                     <h3 class="text-xl font-semibold px-5 pt-5">
-                        Top authors
+                        Top especialistas
                     </h3>
 
                     <ul>
@@ -184,12 +184,12 @@
                     <x-moderators :moderators="$moderators" />
                 </div>
 
-                <div class="hidden lg:block mt-6">
+                <!-- <div class="hidden lg:block mt-6">
                     <x-buttons.dark-cta class="w-full" href="{{ url('/articles/feed') }}">
                         <x-heroicon-s-rss class="w-6 h-6 mr-2" />
                         RSS Feed
                     </x-buttons.dark-cta>
-                </div>
+                </div> -->
             </div>
         </div>
     </div>

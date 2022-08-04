@@ -7,7 +7,7 @@
         @include('admin.partials._navigation', [
             'query' => route('admin.users'),
             'search' => $adminSearch,
-            'placeholder' => 'Search for users...',
+            'placeholder' => 'Buscar usuarios...',
         ])
     </div>
 
@@ -19,10 +19,10 @@
                         <table class="min-w-full divide-y divide-gray-200">
                             <thead class="bg-gray-50">
                                 <tr>
-                                    <x-tables.table-head>Name</x-tables.table-head>
-                                    <x-tables.table-head>Role</x-tables.table-head>
-                                    <x-tables.table-head>Joined On</x-tables.table-head>
-                                    <x-tables.table-head class="text-center">Profile</x-tables.table-head>
+                                    <x-tables.table-head>Nombre</x-tables.table-head>
+                                    <x-tables.table-head>Rol</x-tables.table-head>
+                                    <x-tables.table-head>Se unió el</x-tables.table-head>
+                                    <x-tables.table-head class="text-center">Perfil</x-tables.table-head>
                                 </tr>
                             </thead>
                             <tbody class="bg-white divide-y divide-gray-200">
@@ -79,7 +79,7 @@
                                                 </button>
 
                                                 <x-modal identifier="deleteUser{{ $user->getKey() }}" :action="route('admin.users.delete', $user->username())" title="Delete {{ $user->username() }}">
-                                                    <p>Deleting this user will remove their account and any related content like threads & replies. This cannot be undone.</p>
+                                                    <p>Al borrar este usuario se eliminará su cuenta y cualquier contenido relacionado como hilos y respuestas. Esto no se puede deshacer.</p>
                                                 </x-modal>
                                             @endcan
                                         </x-tables.table-data>
