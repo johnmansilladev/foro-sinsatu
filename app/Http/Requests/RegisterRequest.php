@@ -47,7 +47,7 @@ class RegisterRequest extends FormRequest
         return $this->get('username');
     }
 
-    public function githubId(): string
+    /* public function githubId(): string
     {
         return $this->get('github_id');
     }
@@ -55,5 +55,5 @@ class RegisterRequest extends FormRequest
     public function githubUsername(): string
     {
         return $this->get('github_username', '');
-    }
+    } */
 }

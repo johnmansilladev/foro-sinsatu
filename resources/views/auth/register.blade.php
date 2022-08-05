@@ -34,13 +34,13 @@
 
             <div class="flex items-center">
                 <x-forms.inputs.checkbox name="rules" id="rules">
-                    I agree to <a href="{{ route('rules') }}" class="text-lio-700" target="_blank">the rules of the portal</a>
+                    I agree to <a href="{{ route('rules') }}" class="text-blue-700" target="_blank">the rules of the portal</a>
                 </x-forms.inputs.checkbox>
             </div>
 
             <div class="flex items-center">
                 <x-forms.inputs.checkbox name="terms" id="terms">
-                    I agree to <a href="{{ route('terms') }}" class="text-lio-700" target="_blank">Terms & Conditions</a> and <a href="{{ route('privacy') }}" class="text-lio-700" target="_blank">Privacy Policy</a>
+                    I agree to <a href="{{ route('terms') }}" class="text-blue-700" target="_blank">Terms & Conditions</a> and <a href="{{ route('privacy') }}" class="text-blue-700" target="_blank">Privacy Policy</a>
                 </x-forms.inputs.checkbox>
             </div>
 
@@ -53,31 +53,28 @@
     <x-buk-form action="{{ route('register.post') }}" method="POST" class="space-y-3">
             <div>
                 <x-forms.label for="nombre" />
-
-                <x-forms.inputs.input name="name" value="{{ session('githubData.name') }}" placeholder="John Doe" required />
+                <x-forms.inputs.input name="name" id="name" placeholder="John Mansilla" required />
             </div>
 
             <div>
                 <x-forms.label for="email" />
-
-                <x-forms.inputs.email name="email" id="email" value="{{ session('githubData.email') }}" placeholder="john@example.com" required />
+                <x-forms.inputs.email name="email" id="email" placeholder="jmansilla@sinsatu.com" required />
             </div>
 
             <div>
                 <x-forms.label for="Username" />
-
-                <x-forms.inputs.input name="username" id="username" value="{{ session('githubData.username') }}" placeholder="johndoe" required />
+                <x-forms.inputs.input name="username" id="username" placeholder="jmansilla" required />
             </div>
 
             <div class="flex items-center">
                 <x-forms.inputs.checkbox name="rules" id="rules">
-                    Acepto las <a href="{{ route('rules') }}" class="text-lio-700" target="_blank">reglas del portal</a>
+                    Acepto las <a href="{{ route('rules') }}" class="text-blue-700" target="_blank">reglas del portal</a>
                 </x-forms.inputs.checkbox>
             </div>
 
             <div class="flex items-center">
                 <x-forms.inputs.checkbox name="terms" id="terms">
-                    Acepto los<a href="{{ route('terms') }}" class="text-lio-700" target="_blank">Términos y condiciones</a> and <a href="{{ route('privacy') }}" class="text-lio-700" target="_blank">Políticas de privacidad</a>
+                    Acepto los<a href="{{ route('terms') }}" class="text-blue-700" target="_blank">Términos y condiciones</a> and <a href="{{ route('privacy') }}" class="text-blue-700" target="_blank">Políticas de privacidad</a>
                 </x-forms.inputs.checkbox>
             </div>
 
@@ -95,30 +92,40 @@
                 </span>
             </div>
         </div>
-            <div>
-                <x-buttons.secondary-button href="{{ route('login.google')}}" fullWidth class="bg-cyan-700 hover:bg-cyan-800">
+        <div class="mt-6 flex w-full justify-between">
+            <!-- <div>
+                <x-buttons.secondary-button href="{{ route('login.github') }}" fullWidth>
                     <span class="flex items-center gap-x-2">
-                        <x-icon-github class="h-5 w-5 text-white" />
-                        <span class="text-white">LinkedIn</span>
+                        <x-icon-github class="h-5 w-5 text-gray-500" />
+                        <span>Sign in with GitHub</span>
                     </span>
                 </x-buttons.secondary-button>
-            </div>
-            <div>
-                <x-buttons.secondary-button href="{{ route('login.google')}}" fullWidth class="bg-red-700 hover:bg-red-800">
-                    <span class="flex items-center gap-x-2">
+            </div> -->
+            <div class="w-1/3 mx-1 my-1">
+                <a href="{{ route('login.google')}}" class="block w-full bg-cyan-700 hover:bg-cyan-800 py-2 px-4 rounded" fullWidth >
+                    <span class="flex items-center gap-x-2 flex justify-center">
                         <x-icon-github class="h-5 w-5 text-white" />
-                        <span class="text-white">Google</span>
+                    <!--  <span class="text-white">LinkedIn</span> -->
                     </span>
-                </x-buttons.secondary-button>
+                </a>
             </div>
-            <div>
-                <x-buttons.secondary-button href="{{ route('login.facebook')}}" fullWidth class="bg-blue-700 hover:bg-blue-800">
-                    <span class="flex items-center gap-x-2 ">
+            <div class="w-1/3 mx-1 my-1">
+                <a href="{{ route('login.google')}}" class="block w-full bg-red-700 hover:bg-red-800 py-2 px-4 rounded" fullWidth>
+                    <span class="flex items-center gap-x-2 flex justify-center">
+                        <x-icon-github class="h-5 w-5 text-white" />
+                        <!-- <span class="text-white">Google</span> -->
+                    </span>
+                </a>
+            </div>
+            <div class="w-1/3 mx-1 my-1">
+                <a href="{{ route('login.facebook')}}" class="block w-full bg-blue-700 hover:bg-blue-800 py-2 px-4 rounded" fullWidth>
+                    <span class="flex items-center gap-x-2 flex justify-center">
                         <x-icon-facebook class="h-5 w-5 text-white" />
-                        <span class="text-white">Facebook</span>
+                        <!-- <span class="text-white">Facebook</span> -->
                     </span>
-                </x-buttons.secondary-button>
+                </a>
             </div>
+        </div>
         </x-buk-form>
     </div>
 @endsection

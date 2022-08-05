@@ -149,8 +149,8 @@ svg .secondary {
     @apply bg-lio-100;
 }
 
-.bg-lio-500 {
-    /*background-color: #ff9c22;*/
+/* .bg-lio-500 {
+    background-color: #ff9c22;
     background-color: #204051;
 }
 
@@ -165,3 +165,8 @@ svg .secondary {
 .text-lio-500{
     color: #204051;
 }
+
+.bg-lio-100 {
+    --tw-bg-opacity: 1;
+    background-color: #204051;
+} */

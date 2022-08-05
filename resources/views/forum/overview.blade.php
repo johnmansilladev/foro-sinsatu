@@ -73,7 +73,7 @@
 
                         <div class="w-1/2">
                             <x-buttons.primary-cta href="{{ route('threads.create') }}" class="w-full">
-                                Crear artículo
+                                Crear hilo
                             </x-buttons.primary-cta>
                         </div>
                     </div>

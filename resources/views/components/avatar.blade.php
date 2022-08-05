@@ -11,13 +11,13 @@
     <x-buk-avatar
         :search="$user->githubUsername()"
         provider="github"
-        :fallback="asset('/images/laravelio-icon-gray.svg')"
+        :fallback="asset('/images/user-fallback.png')"
         :alt="$user->name()"
         {{ $attributes->merge(['class' => 'bg-gray-50 rounded-full']) }}
     />
 @else
     <img
-        src="{{ asset('images/laravelio-icon-gray.svg') }}"
+        src="{{ asset('images/user-fallback.png') }}"
         alt="{{ $user->name() }}"
         {{ $attributes->merge(['class' => 'bg-gray-50 rounded-full']) }}
     />

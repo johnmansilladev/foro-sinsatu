@@ -66,12 +66,13 @@
     <!-- Popular articles -->
     <section class="mt-12 container mx-auto px-4 lg:mt-24 lg:px-16">
         <div class="flex flex-col items-center mb-8 lg:flex-row lg:mb-16">
-            <h2 class="w-full text-3xl font-bold text-gray-900 mb-2 lg:text-4xl lg:w-1/2 lg:mb-0">
-                Últimos artículos
-            </h2>
+            
             <p class="w-full text-gray-800 text-lg lg:w-1/2">
-                Échale un vistazo a los últimos artículos compartidos por los miembros de nuestra comunidad
+                <!-- Échale un vistazo a los últimos artículos compartidos por los miembros de nuestra comunidad -->
             </p>
+            <h2 class="w-full text-3xl font-bold text-gray-900 mb-2 lg:text-4xl lg:w-1/2 lg:mb-0 text-right">
+                ... revisa los últimos artículos
+            </h2>
         </div>
 
         <x-articles.featured :articles="$latestArticles" />
@@ -139,7 +140,7 @@
                     O puedes ayudar a otras personas...
                 </h2>
                 <p class="w-full text-gray-800 text-lg lg:w-1/2">
-                Al unirse a nuestra plataforma, puede echar un vistazo a los últimos hilos no resueltos
+                <!-- Al unirse a nuestra plataforma, puede echar un vistazo a los últimos hilos no resueltos -->
                 </p>
             </div>
 
@@ -161,24 +162,24 @@
     <!-- /Help others -->
 
     <!-- Sinsatu in numbers -->
-    <!-- <section class="mt-12 container mx-auto px-4 lg:mt-40 lg:px-16">
+    <section class="mt-12 container mx-auto px-4 lg:mt-40 lg:px-16">
         <h2 class="text-4xl leading-tight font-bold text-center text-gray-900 mb-6 lg:mb-12">
             Foro SINSATU en números
         </h2>
 
         <div class="flex flex-col lg:mb-10 lg:flex-row lg:gap-x-8">
             <div class="w-full">
-                <x-number-block title="Users" :total="$totalUsers" :background="asset('images/users.png')" />
+                <x-number-block title="Users" :total="$totalUsers" :background="asset('images/users.jpg')" />
             </div>
 
             <div class="w-full">
-                <x-number-block title="Threads" :total="$totalThreads" :background="asset('images/threads.png')" />
+                <x-number-block title="Threads" :total="$totalThreads" :background="asset('images/threads.jpg')" />
             </div>
 
             <div class="w-full">
-                <x-number-block title="Replies" :total="$totalReplies" :background="asset('images/replies.png')" />
+                <x-number-block title="Replies" :total="$totalReplies" :background="asset('images/replies.jpg')" />
             </div>
         </div>
-    </section> -->
+    </section>
     <!-- /Sinsatu in numbers -->
 @endsection

@@ -12,7 +12,7 @@
 
     <div class="bg-lio-100">
         <div class="max-w-7xl mx-auto py-12 px-4 sm:px-6 lg:py-20 lg:px-8 lg:flex lg:items-center lg:justify-between">
-            <h2 class="text-2xl font-extrabold tracking-tight text-gray-900 md:text-3xl">
+            <h2 class="text-2xl font-extrabold tracking-tight text-white md:text-3xl">
                 <span class="block">¿Algún conocimiento por compartir?</span>
                 <!-- <span class="block">
                     Comparte tu artículo con <a href="https://twitter.com/laravelio" class="text-lio-500 hover:text-lio-600 hover:underline">our 45,000 Twitter followers</a>.
@@ -20,9 +20,9 @@
             </h2>
             <div class="mt-8 flex lg:mt-0 lg:shrink-0">
                 <div class="inline-flex rounded-md shadow">
-                    <x-buttons.primary-button href="{{ route('articles.create') }}" class="px-5 py-3 text-base font-medium">
+                    <x-buttons.secondary-button href="{{ route('articles.create') }}" class="px-5 py-3 text-base font-medium">
                         Comparte tu artículo
-                    </x-buttons.primary-button>
+                    </x-buttons.secondary-button>
                 </div>
             </div>
         </div>
@@ -49,7 +49,7 @@
                             <div class="shrink-0">
                                 <x-buttons.secondary-button class="flex items-center gap-x-2" @click="activeModal = 'tag-filter'">
                                     <x-heroicon-o-filter class="w-5 h-5" />
-                                    Filstro de tags
+                                    Filtro de tags
                                 </x-buttons.secondary-button>
                             </div>
                         </div>
@@ -136,9 +136,9 @@
             </div>
 
             <div class="lg:w-1/4">
-                <div class="hidden lg:block">
+                <!-- <div class="hidden lg:block">
                     @include('layouts._ads._forum_sidebar')
-                </div>
+                </div> -->
 
                 <div class="bg-white shadow rounded-md mt-6">
                     <h3 class="text-xl font-semibold px-5 pt-5">

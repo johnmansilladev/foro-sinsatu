@@ -1,4 +1,4 @@
-@title('Inicia sesión')
+@title('Login')
 
 @extends('layouts.small')
 
@@ -43,12 +43,12 @@
 
             <div class="relative flex justify-center text-sm">
                 <span class="px-2 bg-white text-gray-500">
-                    O iniciar sesión con
+                    O continuar con
                 </span>
             </div>
         </div>
 
-        <div class="mt-6">
+        <div class="mt-6 flex w-full justify-between">
             <!-- <div>
                 <x-buttons.secondary-button href="{{ route('login.github') }}" fullWidth>
                     <span class="flex items-center gap-x-2">
@@ -57,29 +57,29 @@
                     </span>
                 </x-buttons.secondary-button>
             </div> -->
-            <div class="mt-1 mb-2">
-                <x-buttons.secondary-button href="{{ route('login.google')}}" fullWidth class="bg-cyan-700 hover:bg-cyan-800">
-                    <span class="flex items-center gap-x-2">
+            <div class="w-1/3 mx-1 my-1">
+                <a href="{{ route('login.google')}}" class="block w-full bg-cyan-700 hover:bg-cyan-800 py-2 px-4 rounded" fullWidth >
+                    <span class="flex items-center gap-x-2 flex justify-center">
                         <x-icon-github class="h-5 w-5 text-white" />
-                        <span class="text-white">LinkedIn</span>
+                    <!--  <span class="text-white">LinkedIn</span> -->
                     </span>
-                </x-buttons.secondary-button>
+                </a>
             </div>
-            <div class="mt-1 mb-2">
-                <x-buttons.secondary-button href="{{ route('login.google')}}" fullWidth class="bg-red-700 hover:bg-red-800">
-                    <span class="flex items-center gap-x-2">
+            <div class="w-1/3 mx-1 my-1">
+                <a href="{{ route('login.google')}}" class="block w-full bg-red-700 hover:bg-red-800 py-2 px-4 rounded" fullWidth>
+                    <span class="flex items-center gap-x-2 flex justify-center">
                         <x-icon-github class="h-5 w-5 text-white" />
-                        <span class="text-white">Google</span>
+                        <!-- <span class="text-white">Google</span> -->
                     </span>
-                </x-buttons.secondary-button>
+                </a>
             </div>
-            <div class="mt-1 mb-1">
-                <x-buttons.secondary-button href="{{ route('login.facebook')}}" fullWidth class="bg-blue-700 hover:bg-blue-800">
-                    <span class="flex items-center gap-x-2 ">
+            <div class="w-1/3 mx-1 my-1">
+                <a href="{{ route('login.facebook')}}" class="block w-full bg-blue-700 hover:bg-blue-800 py-2 px-4 rounded" fullWidth>
+                    <span class="flex items-center gap-x-2 flex justify-center">
                         <x-icon-facebook class="h-5 w-5 text-white" />
-                        <span class="text-white">Facebook</span>
+                        <!-- <span class="text-white">Facebook</span> -->
                     </span>
-                </x-buttons.secondary-button>
+                </a>
             </div>
         </div>
     </div>

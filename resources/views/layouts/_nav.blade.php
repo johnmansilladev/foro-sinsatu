@@ -206,35 +206,35 @@
 
                                 <div x-show="settings" x-cloak class="mt-4 lg:mt-0">
                                     <ul class="flex flex-col items-center lg:absolute lg:items-stretch lg:ml-0 lg:mt-2 lg:w-36 lg:rounded-md lg:shadow-lg lg:z-50 lg:bg-white">
-                                         <li class="mb-4 lg:hover:bg-gray-100 lg:mb-0">
-                                             <a href="{{ route('profile') }}" class="inline-block w-full lg:px-4 lg:py-3">
-                                                Your Profile
+                                        <li class="mb-4 lg:hover:bg-gray-100 lg:mb-0">
+                                            <a href="{{ route('profile') }}" class="inline-block w-full lg:px-4 lg:py-3">
+                                                Perfil
                                             </a>
                                         </li>
 
                                         <li class="mb-4 lg:hover:bg-gray-100 lg:mb-0">
                                             <a href="{{ route('user.articles') }}" class="inline-block w-full lg:px-4 lg:py-3">
-                                                Your Articles
+                                                Mis artículos
                                             </a>
                                         </li>
 
                                         <li class="mb-4 lg:hover:bg-gray-100 lg:mb-0">
                                             <a href="{{ route('settings.profile') }}" class="inline-block w-full lg:px-4 lg:py-3">
-                                                Settings
+                                                Configuración
                                             </a>
                                         </li>
 
                                         @can(App\Policies\UserPolicy::ADMIN, App\Models\User::class)
                                             <li class="mb-4 lg:hover:bg-gray-100 lg:mb-0 lg:border-t lg:border-b">
                                                 <a href="{{ route('admin') }}" class="inline-block w-full lg:px-4 lg:py-3">
-                                                    Admin
+                                                    Administrador
                                                 </a>
                                             </li>
                                         @endcan
 
                                         <li class="mb-4 lg:hover:bg-gray-100 lg:mb-0">
                                             <x-buk-logout class="inline-block w-full text-left lg:px-4 lg:py-3">
-                                                Sign out
+                                                Cerrar sesión
                                             </x-buk-logout>
                                         </li>
                                     </ul>

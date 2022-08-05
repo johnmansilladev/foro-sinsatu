@@ -59,10 +59,10 @@
                 @if ($thread->isUnlocked() || Auth::user()->isModerator() || Auth::user()->isAdmin())
                     @if ($thread->isConversationOld())
                         <x-info-panel class="flex justify-between gap-x-16">
-                            <p>The last reply to this thread was more than six months ago. Please consider opening a new thread if you have a similar question.</p>
+                            <p>La última respuesta a este hilo fue hace más de seis meses. Por favor, considere abrir un nuevo hilo si tiene una pregunta similar.</p>
 
                             <x-buttons.arrow-button href="{{ route('threads.create') }}" class="shrink-0">
-                                Create thread
+                                Crear nuevo hilo
                             </x-buttons.arrow-button>
                         </x-info-panel>
                     @else
@@ -77,9 +77,9 @@
                                 <livewire:editor
                                     hasMentions
                                     hasButton
-                                    buttonLabel="Reply"
+                                    buttonLabel="Responder"
                                     buttonIcon="send"
-                                    label="Write a reply"
+                                    label="Responder..."
                                     :participants="$thread->participants()"
                                 />
 
