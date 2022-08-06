@@ -28,7 +28,7 @@ class RegisterRequest extends FormRequest
             'username' => 'required|alpha_dash|max:40|unique:users',
             'rules' => 'accepted',
             'terms' => 'accepted',
-            'github_id' => ['required', new UniqueGitHubUser],
+            //'github_id' => ['required', new UniqueGitHubUser],
         ];
     }
 

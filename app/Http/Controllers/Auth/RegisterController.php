@@ -54,7 +54,7 @@ class RegisterController extends Controller
     {
         event(new Registered($user = $this->create($request)));
 
-        session()->forget('githubData');
+        //session()->forget('githubData');
 
         $this->guard()->login($user);
 

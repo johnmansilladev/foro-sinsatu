@@ -13,8 +13,8 @@ final class RegisterUser
         private string $name,
         private string $email,
         private string $username,
-        private string $githubId,
-        private string $githubUsername
+        /* private string $githubId,
+        private string $githubUsername */
     ) {
     }
 
@@ -34,33 +34,18 @@ final class RegisterUser
         $this->assertEmailAddressIsUnique($this->email);
         $this->assertUsernameIsUnique($this->username);
 
-        /* $user = new User([
+        $user = new User([
             'name' => $this->name,
             'email' => $this->email,
             'username' => mb_strtolower($this->username),
-            'github_id' => $this->githubId,
-            'github_username' => $this->githubUsername,
+            /* 'github_id' => $this->githubId,
+            'github_username' => $this->githubUsername, */
             'github_id' => null,
             'github_username' => null,
             'twitter' => null,
             'type' => User::DEFAULT,
             'bio' => '',
             'remember_token' => '',
-        ]); */
-        $user = new User([
-            'name' =>  $this->name,
-            'email' => $this->email,
-            'username' => mb_strtolower($this->username),
-            'password' => bcrypt('secret'),
-            'remember_token' => 'iIkaGGtRaR',
-            'github_id' => null,
-            'github_username' => null,
-            'twitter' => null,
-            'website' => 'https://sinsatu.com',
-            'banned_at' => null,
-            'type' => User::DEFAULT,
-            'bio' => 'lorem ipsum',
-            'email_verified_at' => now()->subDay(),
         ]);
         $user->save();
     }
