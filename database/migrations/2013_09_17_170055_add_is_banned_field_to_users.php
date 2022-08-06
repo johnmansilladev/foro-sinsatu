@@ -8,6 +8,7 @@ return new class extends Migration
 {
     public function up()
     {
+        \Illuminate\Support\Facades\DB::statement('SET SESSION sql_require_primary_key=0'); 
         Schema::table('users', function (Blueprint $table) {
             $table->integer('is_banned')->default(0);
         });
