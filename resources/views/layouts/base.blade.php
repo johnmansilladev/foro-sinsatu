@@ -36,7 +36,7 @@
     @livewireStyles
 </head>
 
-<body class="{{ $bodyClass ?? '' }} font-sans bg-white antialiased" :class="{ 'overflow-hidden': lockScroll }" x-data="{ lockScroll: false, activeModal: false }" @keyup.escape="activeModal = false">
+<body class="{{ $bodyClass ?? '' }} dark:bg-slate-800 font-sans bg-white antialiased" :class="{ 'overflow-hidden': lockScroll }" x-data="{ lockScroll: false, activeModal: false }" @keyup.escape="activeModal = false">
 
 @include('layouts._ads._banner')
 @include('layouts._nav')

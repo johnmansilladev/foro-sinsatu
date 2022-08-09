@@ -1,185 +1,97 @@
 @extends('layouts.base', ['bodyClass' => 'home', 'disableFooterAds' => true])
 
-<!-- @push('meta')
-    <meta name="google-site-verification" content="LR29frqES-MZYtn3iZ6PtobclBfThr83rlNF4huiu0s" />
-@endpush
- -->
 @section('body')
-    @include('layouts._alerts')
-
-    <!-- Head section -->
-    <section class="overflow-x-hidden mt-6 lg:mt-20">
-        <div class="container mx-auto lg:px-16">
-            <div class="flex flex-col items-center px-4 lg:flex-row lg:px-0">
-                <div class="w-full mb-8 lg:w-1/2 lg:mb-0 lg:mr-16">
-                    <h1 class="text-3xl font-bold text-gray-900 leading-tight mb-3 lg:text-6xl">
-                        Comunidad SINSATU
-                    </h1>
-
-                    <div class="mb-5">
-                        <p class="text-gray-800 text-lg leading-8 font-medium">
-                        The FORO SINSATU portal for problem solving, knowledge sharing and community building.
-                        Join <x-accent-text>{{ $totalUsers }}</x-accent-text> other especialists.
-                        </p>
-                    </div>
-
-                    <div>
-                        @if (Auth::guest())
-                            <x-buttons.primary-cta href="{{ route('register') }}" class="w-full mb-3 lg:w-auto lg:mr-2">
-                                Únete a la comunidad
-                            </x-buttons.primary-cta>
-
-                            <x-buttons.secondary-cta href="{{ route('forum') }}" class="w-full lg:w-auto">
-                                Visita el foro
-                            </x-buttons.secondary-cta>
-                        @else
-                            <x-buttons.primary-cta href="{{ route('forum') }}" class="w-full mb-3 lg:w-auto lg:mr-2">
-                                Empieza un tema
-                            </x-buttons.primary-cta>
-
-                            <x-buttons.primary-cta href="{{ route('articles') }}" class="w-full mb-3 lg:w-auto lg:mr-2">
-                                Compartir un artículo
-                            </x-buttons.primary-cta>
-                        @endif
-                    </div>
-                </div>
-
-                <div class="lg:w-1/2">
-                    <!-- <x-community-members :members="$communityMembers" /> -->
-                    <div>
-                        <h2>Seccion en construcción</h2>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-    <!-- /Head section -->
-
-    <!-- Banner ad -->
-   <!--  <section class="container mx-auto mt-12 lg:mt-24 lg:px-16">
-        <div class="px-4 lg:px-10">
-            @include('layouts._ads._footer')
-        </div>
-    </section> -->
-    <!-- /Banner ad -->
-
-    <!-- Popular articles -->
-    <section class="mt-12 container mx-auto px-4 lg:mt-24 lg:px-16">
-        <div class="flex flex-col items-center mb-8 lg:flex-row lg:mb-16">
-            
-            <p class="w-full text-gray-800 text-lg lg:w-1/2">
-                <!-- Échale un vistazo a los últimos artículos compartidos por los miembros de nuestra comunidad -->
-            </p>
-            <h2 class="w-full text-3xl font-bold text-gray-900 mb-2 lg:text-4xl lg:w-1/2 lg:mb-0 text-right">
-                ... revisa los últimos artículos
-            </h2>
-        </div>
-
-        <x-articles.featured :articles="$latestArticles" />
-
-        <div class="flex justify-center">
-            <x-buttons.primary-cta href="{{ route('articles') }}" class="w-full lg:w-auto">
-                Ver todos los artículos
-            </x-buttons.primary-cta>
-        </div>
-    </section>
-    <!-- /Popular articles -->
-
-    <!-- Search -->
-    <!-- <section class="mt-12 lg:mt-24">
-        <div class="bg-lio-500 text-white -skew-y-1">
-            <div class="container mx-auto skew-y-1">
-                <div class="flex flex-col items-center py-10 text-center lg:py-20">
-                    <div class="w-full px-4 lg:w-1/2 lg:px-0">
-                        <div class="mb-8">
-                            <h2 class="text-3xl lg:text-4xl font-bold mb-3">
-                                Looking for a solution?
-                            </h2>
-                            <p class="text-lg lg:text-xl opacity-80">
-                                Search the forum for the answer to your question
-                            </p>
-                        </div>
-
-                        <div class="mb-10">
-                            <div class="relative">
-                                <div class="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none">
-                                    <x-heroicon-o-search class="w-4 h-4 text-gray-900" />
-                                </div>
-
-                                <form action="{{ route('forum') }}" method="GET">
-                                    <input
-                                        type="search"
-                                        name="search"
-                                        placeholder="Search here for threads"
-                                        class="p-4 pl-10 text-gray-600 rounded w-full border-gray-100"
-                                    />
-                                </form>
-                            </div>
-                        </div>
-
-                        <div class="text-lg">
-                            <p>
-                                Can't find what you're looking for?<br class="sm:hidden">
-                                <a href="{{ route('threads.create') }}" class="border-b border-white pb-1">
-                                    Create a new thread
-                                </a>
-                            </p>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section> -->
-    <!-- /Search -->
-
-    <!-- Help others -->
-    <section class="mt-12 container mx-auto lg:mt-24 lg:px-16">
-        <div class="px-4 lg:px-0">
-            <div class="flex flex-col lg:flex-row items-center mb-4 lg:mb-12">
-                <h2 class="w-full text-3xl font-bold text-gray-900 lg:w-1/2 lg:text-4xl">
-                    O puedes ayudar a otras personas...
-                </h2>
-                <p class="w-full text-gray-800 text-lg lg:w-1/2">
-                <!-- Al unirse a nuestra plataforma, puede echar un vistazo a los últimos hilos no resueltos -->
+@include('layouts._alerts')
+<section>
+    <!-- This example requires Tailwind CSS v2.0+ -->
+    <div class="py-12">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="lg:text-center">
+                <h2 class="text-base text-blue-700 font-semibold tracking-wide uppercase dark:text-blue-500">Forum & Articles</h2>
+                <p class="mt-2 text-3xl leading-8 font-extrabold tracking-tight text-gray-900 sm:text-4xl dark:text-white">Comunidad SINSATU</p>
+                <p class="mt-4 max-w-2xl text-xl text-gray-500 lg:mx-auto dark:text-white">
+                    The FORO SINSATU portal for problem solving, knowledge sharing and community building.
+                    Join <x-accent-text>{{ $totalUsers }}</x-accent-text> other especialists.
                 </p>
             </div>
 
-            <div class="flex gap-4 mb-4 -mx-4 p-4 overflow-x-auto lg:mb-10 lg:gap-8">
-                @foreach ($latestThreads as $thread)
-                    <div class="shrink-0 w-11/12 lg:w-1/3 lg:shrink">
-                        <x-threads.summary :thread="$thread" />
+            <div class="mt-10">
+                <dl class="space-y-10 md:space-y-0 md:grid md:grid-cols-2 md:gap-x-8 md:gap-y-10">
+                    <div class="relative">
+                        <dt>
+                            <div class="absolute flex items-center justify-center h-12 w-12 rounded-md bg-blue-600 text-white">
+                                <!-- Heroicon name: outline/globe-alt -->
+                                <svg class="h-6 w-6" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" aria-hidden="true">
+                                    <path stroke-linecap="round" stroke-linejoin="round" d="M21 12a9 9 0 01-9 9m9-9a9 9 0 00-9-9m9 9H3m9 9a9 9 0 01-9-9m9 9c1.657 0 3-4.03 3-9s-1.343-9-3-9m0 18c-1.657 0-3-4.03-3-9s1.343-9 3-9m-9 9a9 9 0 019-9" />
+                                </svg>
+                            </div>
+                            <p class="ml-16 text-lg leading-6 font-medium text-gray-900 dark:text-blue-500">Competitive exchange rates</p>
+                        </dt>
+                        <dd class="mt-2 ml-16 text-base text-gray-500 dark:text-white">Lorem ipsum, dolor sit amet consectetur adipisicing elit. Maiores impedit perferendis suscipit eaque, iste dolor cupiditate blanditiis ratione.</dd>
                     </div>
-                @endforeach
-            </div>
 
-            <div class="flex justify-center">
-                <x-buttons.primary-cta href="{{ route('forum') }}" class="w-full lg:w-auto">
-                    Ver todos los hilos
+                    <div class="relative">
+                        <dt>
+                            <div class="absolute flex items-center justify-center h-12 w-12 rounded-md bg-blue-600 text-white">
+                                <!-- Heroicon name: outline/scale -->
+                                <svg class="h-6 w-6" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" aria-hidden="true">
+                                    <path stroke-linecap="round" stroke-linejoin="round" d="M3 6l3 1m0 0l-3 9a5.002 5.002 0 006.001 0M6 7l3 9M6 7l6-2m6 2l3-1m-3 1l-3 9a5.002 5.002 0 006.001 0M18 7l3 9m-3-9l-6-2m0-2v2m0 16V5m0 16H9m3 0h3" />
+                                </svg>
+                            </div>
+                            <p class="ml-16 text-lg leading-6 font-medium text-gray-900 dark:text-blue-500">No hidden fees</p>
+                        </dt>
+                        <dd class="mt-2 ml-16 text-base text-gray-500 dark:text-white">Lorem ipsum, dolor sit amet consectetur adipisicing elit. Maiores impedit perferendis suscipit eaque, iste dolor cupiditate blanditiis ratione.</dd>
+                    </div>
+
+                    <div class="relative">
+                        <dt>
+                            <div class="absolute flex items-center justify-center h-12 w-12 rounded-md bg-blue-600 text-white">
+                                <!-- Heroicon name: outline/lightning-bolt -->
+                                <svg class="h-6 w-6" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" aria-hidden="true">
+                                    <path stroke-linecap="round" stroke-linejoin="round" d="M13 10V3L4 14h7v7l9-11h-7z" />
+                                </svg>
+                            </div>
+                            <p class="ml-16 text-lg leading-6 font-medium text-gray-900 dark:text-blue-500">Transfers are instant</p>
+                        </dt>
+                        <dd class="mt-2 ml-16 text-base text-gray-500 dark:text-white">Lorem ipsum, dolor sit amet consectetur adipisicing elit. Maiores impedit perferendis suscipit eaque, iste dolor cupiditate blanditiis ratione.</dd>
+                    </div>
+
+                    <div class="relative">
+                        <dt>
+                            <div class="absolute flex items-center justify-center h-12 w-12 rounded-md bg-blue-600 text-white">
+                                <!-- Heroicon name: outline/annotation -->
+                                <svg class="h-6 w-6" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" aria-hidden="true">
+                                    <path stroke-linecap="round" stroke-linejoin="round" d="M7 8h10M7 12h4m1 8l-4-4H5a2 2 0 01-2-2V6a2 2 0 012-2h14a2 2 0 012 2v8a2 2 0 01-2 2h-3l-4 4z" />
+                                </svg>
+                            </div>
+                            <p class="ml-16 text-lg leading-6 font-medium text-gray-900 dark:text-blue-500">Mobile notifications</p>
+                        </dt>
+                        <dd class="mt-2 ml-16 text-base text-gray-500 dark:text-white">Lorem ipsum, dolor sit amet consectetur adipisicing elit. Maiores impedit perferendis suscipit eaque, iste dolor cupiditate blanditiis ratione.</dd>
+                    </div>
+                </dl>
+            </div>
+        </div>
+    </div>
+
+</section>
+
+
+
+<section class="mt-12 container mx-auto px-4">
+    <div class="flex flex-col items-center">
+        <div class="grid grid-cols-2 w-full max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="w-full flex justify-center">
+                <x-buttons.primary-cta href="{{ route('articles') }}" class="w-full lg:w-auto">
+                    Ver todos los artículos
                 </x-buttons.primary-cta>
             </div>
+            <div class="w-full">
+            <div class="flex justify-center">
+                <x-buttons.primary-cta href="{{ route('articles') }}" class="w-full lg:w-auto">
+                    Últimos hilos
+                </x-buttons.primary-cta>
+            </div>            
         </div>
-    </section>
-    <!-- /Help others -->
-
-    <!-- Sinsatu in numbers -->
-    <section class="mt-12 container mx-auto px-4 lg:mt-40 lg:px-16">
-        <h2 class="text-4xl leading-tight font-bold text-center text-gray-900 mb-6 lg:mb-12">
-            Foro SINSATU en números
-        </h2>
-
-        <div class="flex flex-col lg:mb-10 lg:flex-row lg:gap-x-8">
-            <div class="w-full">
-                <x-number-block title="Users" :total="$totalUsers" :background="asset('images/users.jpg')" />
-            </div>
-
-            <div class="w-full">
-                <x-number-block title="Threads" :total="$totalThreads" :background="asset('images/threads.jpg')" />
-            </div>
-
-            <div class="w-full">
-                <x-number-block title="Replies" :total="$totalReplies" :background="asset('images/replies.jpg')" />
-            </div>
-        </div>
-    </section>
-    <!-- /Sinsatu in numbers -->
+    </div>
+</section>
 @endsection

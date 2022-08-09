@@ -16,9 +16,9 @@
         <div>
             <h2 id="create_thread_heading" class="text-lg leading-6 font-medium text-gray-900">
                 @if ($thread)
-                    Actualizar post
+                    Actualizar hilo
                 @else
-                    Crea un nuevo post
+                    Crea un nuevo hilo
                 @endif
             </h2>
             <x-rules-banner />
@@ -27,7 +27,7 @@
         <div class="flex flex-col space-y-6">
             <div class="grow space-y-6">
                 <div class="space-y-1">
-                    <x-forms.label for="subject"/>
+                    <x-forms.label for="Título"/>
 
                     <x-forms.inputs.input name="subject" :value="$thread?->subject()" required maxlength="60" />
 
@@ -57,7 +57,7 @@
 
                     <livewire:editor
                         :body="$thread?->body()"
-                        placeholder="Construya su hilo..."
+                        placeholder="Redacte su tema..."
                         hasMentions
                         hasButton
                         :buttonLabel="$thread ? 'Actualizar hilo' : 'Crear hilo'"

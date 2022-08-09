@@ -14,7 +14,7 @@
                     @click="mode = 'write'" 
                     :class="{ 'text-lio-500 border-lio-500 border-b-2': mode === 'write' }"
                 >
-                    Write
+                    Escribir
                 </button>
             </li>
 
@@ -25,7 +25,7 @@
                     wire:click="preview" 
                     :class="{ 'text-lio-500 border-lio-500 border-b-2': mode === 'preview' }"
                 >
-                    Preview
+                    Vista previa
                 </button>
             </li>
         </ul>

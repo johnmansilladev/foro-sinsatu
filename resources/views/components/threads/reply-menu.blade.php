@@ -37,7 +37,7 @@
             <x-modal
                 identifier="markSolution-{{ $reply->id }}"
                 :action="route('threads.solution.mark', [$thread->slug(), $reply->id()])"
-                title="Mark As Solution"
+                title="Marcar como solución"
                 type="update"
             >
                 <p>Confirmar para marcar esta respuesta como solución para<strong>"{{ $thread->subject() }}"</strong>.</p>

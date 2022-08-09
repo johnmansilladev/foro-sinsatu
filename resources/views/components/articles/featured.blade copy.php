@@ -1,7 +1,7 @@
 @props(['articles'])
 
 @unless ($articles->count() < 4)
-    <!-- <div class="flex flex-col gap-y-8 lg:flex-row lg:gap-x-8 lg:mb-16">
+    <div class="flex flex-col gap-y-8 lg:flex-row lg:gap-x-8 lg:mb-16">
         <div class="w-full lg:w-1/3">
             <x-articles.summary 
                 :article="$articles->first()"
@@ -25,8 +25,5 @@
                 <x-articles.summary :article="$articles->get(3)" />
             </div>
         </div>
-    </div> -->
-    <div>
-        
     </div>
 @endunless

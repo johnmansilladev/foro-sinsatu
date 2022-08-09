@@ -35,7 +35,7 @@
 
         @if ($thread->isSolutionReply($reply) && $resolvedBy = $thread->resolvedBy())
             <div class="px-6 pb-6 text-lio-500">
-                Solution selected by
+                Solución elegida por:
                 <a
                     href="{{ route('profile', $resolvedBy->username()) }}"
                     class="font-bold text-lio-600 hover:text-lio-800"

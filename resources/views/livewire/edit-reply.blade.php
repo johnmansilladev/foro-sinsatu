@@ -16,7 +16,7 @@
                 :body="$reply->body()"
                 hasMentions
                 hasButton
-                buttonLabel="Update reply"
+                buttonLabel="Actualizar respuesta"
                 buttonIcon="heroicon-o-arrow-right"
             />
 

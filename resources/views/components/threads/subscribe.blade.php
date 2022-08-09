@@ -8,12 +8,13 @@
             <x-buttons.secondary-cta action="{{ route('threads.unsubscribe', $thread->slug()) }}" class="w-full mt-3">
                 <span class="flex items-center justify-center gap-x-2">
                     <x-heroicon-o-volume-off class="w-6 h-6" />
-                    Unsubscribe
+                    Desuscribirse
                 </span>
             </x-buttons.secondary-cta>
 
             <p class="text-gray-600 mt-4">
-                You are currently receiving notifications of updates from this thread.
+                <!-- You are currently receiving notifications of updates from this thread. -->
+                Recibirás notificaciones de este hilo.
             </p>
         @elsecan(App\Policies\ThreadPolicy::SUBSCRIBE, $thread)
             <x-buttons.secondary-cta action="{{ route('threads.subscribe', $thread->slug()) }}" class="w-full mt-3">
@@ -24,7 +25,8 @@
             </x-buttons.secondary-cta>
 
             <p class="text-gray-600 mt-4">
-                You are not currently receiving notifications of updates from this thread.
+                <!-- You are not currently receiving notifications of updates from this thread. -->
+                No estás recibiendo notificaciones  de este hilo
             </p>
         @endcan
     </div>
