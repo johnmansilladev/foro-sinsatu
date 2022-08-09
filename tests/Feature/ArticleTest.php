@@ -103,7 +103,7 @@ test('users cannot create an article with a title that is too long', function ()
     $this->login();
 
     $response = $this->post('/articles', [
-        'title' => 'Adding Notifications to make a really engaging UI for Laravel.io users using Livewire, Alpine.js and Tailwind UI',
+        'title' => 'Adding Notifications to make a really engaging UI for Sinsatu users using Livewire, Alpine.js and Tailwind UI',
         'body' => 'The title of this article is too long',
     ]);
 
@@ -254,7 +254,7 @@ test('users cannot edit an article with a title that is too long', function () {
     $this->loginAs($user);
 
     $response = $this->put('/articles/my-first-article', [
-        'title' => 'Adding Notifications to make a really engaging UI for Laravel.io users using Livewire, Alpine.js and Tailwind UI',
+        'title' => 'Adding Notifications to make a really engaging UI for Sinsatu users using Livewire, Alpine.js and Tailwind UI',
         'body' => 'The title of this article is too long',
     ]);
 

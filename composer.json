@@ -1,6 +1,6 @@
 {
-    "name": "laravelio/laravel.io",
-    "description": "The source code for the Laravel.io community portal.",
+    "name": "foro",
+    "description": "Foro...",
     "license": "MIT",
     "type": "project",
     "require": {

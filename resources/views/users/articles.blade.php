@@ -20,11 +20,11 @@
 
 @section('content')
     <div class="container mx-auto px-4 py-8">
-        @unless(Auth::user()->hasTwitterAccount())
+        <!-- @unless(Auth::user()->hasTwitterAccount())
             <x-primary-info-panel icon="heroicon-s-information-circle">
                 Set your <a href="{{ route('settings.profile') }}" class="underline">Twitter handle</a> so we can link to your profile when we tweet out your article.
             </x-primary-info-panel>
-        @endunless
+        @endunless -->
 
         <div class="flex flex-col gap-y-4 mb-4">
             @forelse($articles as $article)

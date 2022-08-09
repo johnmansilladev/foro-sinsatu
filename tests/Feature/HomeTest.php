@@ -7,8 +7,8 @@ uses(BrowserKitTestCase::class);
 uses(DatabaseMigrations::class);
 
 test('users can see the homepage', function () {
-    $this->visit('/')
-        ->see('Laravel.io')
+    $this->visait('/')
+        ->see('Sinsatu')
         ->see('The Laravel Community Portal');
 });
 
