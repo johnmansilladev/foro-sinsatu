@@ -7,6 +7,7 @@ module.exports = {
         './resources/**/*.js',
         './resources/macros/blade.php',
         './vendor/laravel/framework/src/Illuminate/Pagination/resources/views/*.blade.php',
+        './node_modules/flowbite/**/*.js',
     ],
     theme: {
         container: {
@@ -86,5 +87,8 @@ module.exports = {
             }),
         },
     },
-    plugins: [require('@tailwindcss/forms'), require('@tailwindcss/typography')],
+    plugins: [
+        require('flowbite/plugin'),
+        require('@tailwindcss/forms'), 
+        require('@tailwindcss/typography')],
 };

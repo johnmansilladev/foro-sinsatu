@@ -3,7 +3,7 @@
     'isFeatured' => false,
 ])
 
-<div class="h-full flex flex-1 flex-col grow place-content-between py-2 divide-y">
+<div class="h-full flex flex-1 flex-col grow place-content-between">
     <div class="break-words">
         @if ($isFeatured)
             <a href="{{ route('articles.show', $article->slug()) }}">
@@ -11,26 +11,30 @@
             </a>
         @endif
 
+        <span class="font-mono text-gray-700 leading-6 mb-2 block">
+            {{ $article->submittedAt()->format('F jS Y') }}
+        </span>
+
         @if ($isFeatured)
-            <h4 class="text-gray-900 text-base font-bold leading-10 mb-0 dark:text-blue-600">
+            <h3 class="text-gray-900 text-3xl font-bold leading-10 mb-2">
                 <a href="{{ route('articles.show', $article->slug()) }}" class="hover:underline">
                     {{ $article->title() }}
                 </a>
-            </h4>
+            </h3>
         @else
-            <h4 class="text-gray-900 text-base font-bold leading-8 mb-0 dark:text-blue-600">
+            <h4 class="text-gray-900 text-2xl font-bold leading-8 mb-3">
                 <a href="{{ route('articles.show', $article->slug()) }}" class="hover:underline">
                     {{ $article->title() }}
                 </a>
             </h4>
         @endif
-        <span class="font-mono text-gray-700 leading-6 mb-2 block dark:text-slate-400 text-xs">
-            {{ $article->submittedAt()->format('F jS Y') }}
-        </span>
-        <p class="text-gray-800 leading-7 mb-3 dark:text-slate-400 text-xs">
+
+        <p class="text-gray-800 leading-7 mb-3">
             {{ $article->excerpt() }}
         </p>
     </div>
 
-    
+    <x-buttons.arrow-button href="{{ route('articles.show', $article->slug()) }}" class="items-end py-2">
+        Leer artículo
+    </x-buttons.arrow-button>
 </div>

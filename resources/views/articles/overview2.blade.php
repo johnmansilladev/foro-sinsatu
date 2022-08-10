@@ -4,6 +4,11 @@
 @extends('layouts.default')
 
 @section('content')
+    <!-- <div class="bg-white pt-5 lg:pt-2">
+        <div class="container mx-auto flex flex-col gap-x-12 px-4 lg:flex-row">
+            <x-articles.featured :articles="$pinnedArticles" />
+        </div>
+    </div> -->
 
     <div class="bg-[#204051]">
         <div class="max-w-7xl mx-auto py-12 px-4 sm:px-6 lg:py-20 lg:px-8 lg:flex lg:items-center lg:justify-between">

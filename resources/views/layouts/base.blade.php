@@ -36,7 +36,7 @@
     @livewireStyles
 </head>
 
-<body class="{{ $bodyClass ?? '' }} dark:bg-slate-800 font-sans bg-white antialiased" :class="{ 'overflow-hidden': lockScroll }" x-data="{ lockScroll: false, activeModal: false }" @keyup.escape="activeModal = false">
+<body class="{{ $bodyClass ?? '' }} dark:bg-slate-900 font-sans bg-white antialiased" :class="{ 'overflow-hidden': lockScroll }" x-data="{ lockScroll: false, activeModal: false }" @keyup.escape="activeModal = false">
 
 @include('layouts._ads._banner')
 @include('layouts._nav')
@@ -48,6 +48,6 @@
 @stack('modals')
 
 @livewireScripts
-
+<script src="https://unpkg.com/flowbite@1.5.2/dist/flowbite.js"></script>
 </body>
 </html>

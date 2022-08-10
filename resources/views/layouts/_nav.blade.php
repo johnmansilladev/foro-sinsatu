@@ -1,101 +1,251 @@
-<!-- This example requires Tailwind CSS v2.0+ -->
-<nav class="bg-gray-800 dark:bg-black">
-    <div class="max-w-7xl mx-auto px-2 sm:px-6 lg:px-8">
-        <div class="relative flex items-center justify-between h-16">
-            <div class="absolute inset-y-0 left-0 flex items-center sm:hidden">
-                <!-- Mobile menu button-->
-                <button type="button" class="inline-flex items-center justify-center p-2 rounded-md text-gray-400 hover:text-white hover:bg-gray-700 focus:outline-none focus:ring-2 focus:ring-inset focus:ring-white" aria-controls="mobile-menu" aria-expanded="false">
-                    <span class="sr-only">Open main menu</span>
-                    <!--
-            Icon when menu is closed.
+<nav class="{{ isset($hasShadow) ? 'shadow mb-1' : '' }} dark:bg-black">
+    <div class="container mx-auto text-gray-800 lg:block lg:py-8" x-data="navConfig()" @click.outside="nav = false">
+        <div class="block bg-white dark:bg-black 2xl:-mx-10">
+            <div class="lg:px-4 lg:flex">
+                <div class="block lg:flex lg:items-center lg:shrink-0">
+                    <div class="flex justify-between items-center p-4 lg:p-0">
+                        <a href="{{ route('home') }}" class="mr-4">
+                            <img class="h-6 w-auto lg:h-8" src="{{ asset('images/logo-web-test-dark.png')}}" alt="" />
+                        </a>
 
-            Heroicon name: outline/menu
+                        <div class="flex lg:hidden">
+                            <button @click="showSearch($event)">
+                                <x-heroicon-o-search class="w-6 h-6 mr-4" />
+                            </button>
 
-            Menu open: "hidden", Menu closed: "block"
-          -->
-                    <svg class="block h-6 w-6" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" aria-hidden="true">
-                        <path stroke-linecap="round" stroke-linejoin="round" d="M4 6h16M4 12h16M4 18h16" />
-                    </svg>
-                    <!--
-            Icon when menu is open.
+                            <button @click="nav = !nav">
+                                <x-heroicon-o-menu-alt-1 x-show="!nav" class="w-6 h-6" />
+                            </button>
 
-            Heroicon name: outline/x
+                            <button @click="nav = !nav" x-cloak>
+                                <x-heroicon-o-x x-show="nav" class="w-6 h-6" />
+                            </button>
+                        </div>
+                    </div>
 
-            Menu open: "block", Menu closed: "hidden"
-          -->
-                    <svg class="hidden h-6 w-6" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" aria-hidden="true">
-                        <path stroke-linecap="round" stroke-linejoin="round" d="M6 18L18 6M6 6l12 12" />
-                    </svg>
-                </button>
-            </div>
-            <div class="flex-1 flex items-center justify-center sm:items-stretch sm:justify-start">
-                <div class="flex-shrink-0 flex items-center">
-                    <img class="block lg:hidden h-8 w-auto" src="https://tailwindui.com/img/logos/workflow-mark-indigo-500.svg" alt="Workflow">
-                    <img class="hidden lg:block h-8 w-auto" src="https://tailwindui.com/img/logos/workflow-logo-indigo-500-mark-white-text.svg" alt="Workflow">
-                </div>
-                <div class="hidden sm:block sm:ml-6">
-                    <div class="flex space-x-4">
-                        <!-- Current: "bg-gray-900 text-white", Default: "text-gray-300 hover:bg-gray-700 hover:text-white" -->
-                        <a href="#" class="bg-gray-900 text-white px-3 py-2 rounded-md text-sm font-medium" aria-current="page">Foro</a>
+                    <div class="mt-2 border-b lg:block lg:mt-0 lg:border-0 " x-cloak :class="{ 'block': nav, 'hidden': !nav }">
+                        <ul class="flex flex-col px-4 mb-2 gap-y-2 lg:flex-row lg:mb-0 lg:gap-6 dark:text-white">
+                            <li class="rounded lg:mb-0 lg:hover:bg-black @if(is_active(['forum', 'threads*', 'thread'])) bg-white text-black @endif">
+                                <a href="{{ route('forum') }}" class="inline-block w-full px-2 py-1">
+                                    Foros
+                                </a>
+                            </li>
 
-                        <a href="#" class="text-gray-300 hover:bg-gray-700 hover:text-white px-3 py-2 rounded-md text-sm font-medium">Artículos</a>
+                            <li class="rounded lg:mb-0 lg:hover:bg-black @if(is_active(['articles', 'articles*'])) bg-white text-black @endif">
+                                <a href="{{ route('articles') }}" class="inline-block w-full px-2 py-1">
+                                    Artículos
+                                </a>
+                            </li>
 
-                        <a href="#" class="text-gray-300 hover:bg-gray-700 hover:text-white px-3 py-2 rounded-md text-sm font-medium">Reglas</a>
+                            <!-- <li class="rounded lg:mb-0 lg:hover:bg-gray-100">
+                                <a href="https://paste.laravel.io" class="inline-block w-full px-2 py-1">
+                                    Pastebin
+                                </a>
+                            </li>
 
-                        <a href="#" class="text-gray-300 hover:bg-gray-700 hover:text-white px-3 py-2 rounded-md text-sm font-medium">Otros</a>
+                            <li class="rounded lg:mb-0 lg:hover:bg-gray-100">
+                                <div @click.outside="chat = false" class="relative">
+                                    <div>
+                                        <button @click="chat = !chat" class="flex items-center lg:mb-0 py-1 px-2">
+                                            Chat
+                                            <x-heroicon-s-chevron-down x-show="!chat" class="w-4 h-4 ml-1"/>
+                                            <x-heroicon-s-chevron-left x-cloak x-show="chat" class="w-4 h-4 ml-1"/>
+                                        </button>
+                                    </div>
+                                    <div x-show="chat" x-cloak>
+                                        <ul class="ml-4 lg:absolute lg:flex lg:flex-col lg:ml-0 lg:mt-2 lg:w-36 lg:rounded-md lg:shadow-lg lg:z-50 lg:bg-white">
+                                            <li class="my-4 lg:hover:bg-gray-100 lg:my-0">
+                                                <a href="https://discord.gg/KxwQuKb" class="inline-block w-full lg:px-4 lg:py-3">
+                                                    <x-si-discord class="w-4 h-4 inline text-discord" />
+                                                    Discord
+                                                </a>
+                                            </li>
+
+                                            <li class="mb-4 lg:hover:bg-gray-100 lg:mb-0">
+                                                <a href="https://larachat.co" class="inline-block w-full lg:px-4 lg:py-3">
+                                                    <x-si-slack class="w-4 h-4 inline text-red-400" />
+                                                    Larachat
+                                                </a>
+                                            </li>
+
+                                            <li class="hover:bg-gray-100">
+                                                <a href="https://web.libera.chat/?nick=laravelnewbie&channels=#laravel" class="inline-block w-full lg:px-4 lg:py-3">
+                                                    <x-heroicon-s-chat class="w-4 h-4 inline text-green-500" />
+                                                    IRC
+                                                </a>
+                                            </li>
+                                        </ul>
+                                    </div>
+                                </div>
+                            </li>
+
+                            <li class="rounded lg:mb-0 lg:hover:bg-gray-100">
+                                <div @click.outside="community = false" class="relative">
+                                    <button @click="community = !community" class="flex items-center lg:mb-0 py-1 px-2">
+                                        Community
+                                        <x-heroicon-s-chevron-down x-show="!community" class="w-4 h-4 ml-1"/>
+                                        <x-heroicon-s-chevron-left x-cloak x-show="community" class="w-4 h-4 ml-1"/>
+                                    </button>
+
+                                    <div x-show="community" x-cloak>
+                                        <ul class="ml-4 lg:absolute lg:flex lg:flex-col lg:ml-0 lg:mt-2 lg:w-48 lg:rounded-md lg:shadow-lg lg:z-50 lg:bg-white">
+                                            <li class="my-4 lg:hover:bg-gray-100 lg:my-0">
+                                                <a href="https://github.com/laravelio" class="inline-block w-full lg:px-4 lg:py-3">
+                                                    <x-icon-github class="w-4 h-4 inline"/>
+                                                    Github
+                                                </a>
+                                            </li>
+
+                                            <li class="mb-4 lg:hover:bg-gray-100 lg:mb-0">
+                                                <a href="https://twitter.com/laravelio" class="inline-block w-full lg:px-4 lg:py-3">
+                                                    <x-icon-twitter class="w-4 h-4 inline text-twitter"/>
+                                                    Twitter
+                                                </a>
+                                            </li>
+
+                                            <li class="mb-4 lg:hover:bg-gray-100 lg:mb-0">
+                                                <a href="https://laravel.com" class="inline-block w-full lg:px-4 lg:py-3">
+                                                    <img src="{{ asset('images/laravel.png') }}" alt="Laravel" class="w-4 h-4 inline" />
+                                                    Laravel
+                                                </a>
+                                            </li>
+
+                                            <li class="mb-4 lg:hover:bg-gray-100 lg:mb-0">
+                                                <a href="https://laracasts.com" class="inline-block w-full lg:px-4 lg:py-3">
+                                                    <img src="{{ asset('images/laracasts.png') }}" alt="Laracasts" class="w-4 h-4 inline" />
+                                                    Laracasts
+                                                </a>
+                                            </li>
+
+                                            <li class="mb-4 lg:hover:bg-gray-100 lg:mb-0">
+                                                <a href="https://laravel-news.com" class="inline-block w-full lg:px-4 lg:py-3">
+                                                    <img src="{{ asset('images/laravel-news.png') }}" alt="Laravel News" class="w-4 h-4 inline" />
+                                                    Laravel News
+                                                </a>
+                                            </li>
+
+                                            <li class="mb-4 lg:hover:bg-gray-100 lg:mb-0">
+                                                <a href="https://laravelevents.com" class="inline-block w-full lg:px-4 lg:py-3">
+                                                    <img src="{{ asset('images/laravel.png') }}" alt="Laravel" class="w-4 h-4 inline" />
+                                                    Laravel Events
+                                                </a>
+                                            </li>
+
+                                            <li class="mb-4 lg:hover:bg-gray-100 lg:mb-0">
+                                                <a href="https://www.laravelpodcast.com" class="inline-block w-full lg:px-4 lg:py-3">
+                                                    <img src="{{ asset('images/podcast.png') }}" alt="Laravel Podcast" class="w-4 h-4 inline" />
+                                                    Podcast
+                                                </a>
+                                            </li>
+
+                                            <li class="hover:bg-gray-100">
+                                                <a href="https://ecosystem.laravel.io" class="inline-block w-full lg:px-4 lg:py-3">
+                                                    <img src="{{ asset('images/laravelio-icon.svg') }}" alt="Laravel Podcast" class="w-4 h-4 inline" />
+                                                    Ecosystem
+                                                </a>
+                                            </li>
+                                        </ul>
+                                    </div>
+                                </div>
+                            </li> -->
+                        </ul>
                     </div>
                 </div>
-            </div>
-            <div class="absolute inset-y-0 right-0 flex items-center pr-2 sm:static sm:inset-auto sm:ml-6 sm:pr-0">
-                <button type="button" class="bg-gray-800 p-1 rounded-full text-gray-400 hover:text-white focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-offset-gray-800 focus:ring-white">
-                    <span class="sr-only">View notifications</span>
-                    <!-- Heroicon name: outline/bell -->
-                    <svg class="h-6 w-6" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" aria-hidden="true">
-                        <path stroke-linecap="round" stroke-linejoin="round" d="M15 17h5l-1.405-1.405A2.032 2.032 0 0118 14.158V11a6.002 6.002 0 00-4-5.659V5a2 2 0 10-4 0v.341C7.67 6.165 6 8.388 6 11v3.159c0 .538-.214 1.055-.595 1.436L4 17h5m6 0v1a3 3 0 11-6 0v-1m6 0H9" />
-                    </svg>
-                </button>
 
-                <!-- Profile dropdown -->
-                <div class="ml-3 relative">
-                    <div>
-                        <button type="button" class="bg-gray-800 flex text-sm rounded-full focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-offset-gray-800 focus:ring-white" id="user-menu-button" aria-expanded="false" aria-haspopup="true">
-                            <span class="sr-only">Open user menu</span>
-                            <img class="h-8 w-8 rounded-full" src="https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=2&w=256&h=256&q=80" alt="">
+                <div class="w-full block gap-x-4 lg:flex lg:items-center lg:justify-end">
+                    <div class="flex items-center">
+                        <button @click="showSearch($event)" @keyup.window.slash="showSearch($event)" class="hover:text-lio-500">
+                            <x-heroicon-o-search class="h-5 w-5 hidden lg:block" />
                         </button>
+                        @include('_partials._search')
                     </div>
 
-                    <!--
-            Dropdown menu, show/hide based on menu state.
+                    <ul class="block lg:flex lg:items-center gap-x-8" x-cloak :class="{ 'block': nav, 'hidden': !nav }">
+                        @if (Auth::guest())
+                        <li class="w-full rounded text-center lg:hover:bg-gray-100">
+                            <a href="{{ route('register') }}" class="inline-block w-full  p-2.5">
+                                Registrarse
+                            </a>
+                        </li>
 
-            Entering: "transition ease-out duration-100"
-              From: "transform opacity-0 scale-95"
-              To: "transform opacity-100 scale-100"
-            Leaving: "transition ease-in duration-75"
-              From: "transform opacity-100 scale-100"
-              To: "transform opacity-0 scale-95"
-          -->
-                    <!-- <div class="origin-top-right absolute right-0 mt-2 w-48 rounded-md shadow-lg py-1 bg-white ring-1 ring-black ring-opacity-5 focus:outline-none" role="menu" aria-orientation="vertical" aria-labelledby="user-menu-button" tabindex="-1">
-            Active: "bg-gray-100", Not Active: ""
-            <a href="#" class="block px-4 py-2 text-sm text-gray-700" role="menuitem" tabindex="-1" id="user-menu-item-0">Your Profile</a>
-            <a href="#" class="block px-4 py-2 text-sm text-gray-700" role="menuitem" tabindex="-1" id="user-menu-item-1">Settings</a>
-            <a href="#" class="block px-4 py-2 text-sm text-gray-700" role="menuitem" tabindex="-1" id="user-menu-item-2">Sign out</a>
-          </div> -->
+                        <li>
+                            <div class="hidden lg:block">
+                                <x-buttons.secondary-cta class="flex items-center" href="{{ route('login') }}">
+                                    <span class="flex items-center">
+                                        <x-heroicon-o-user class="w-5 h-5 mr-1" />
+                                        Login
+                                    </span>
+                                </x-buttons.secondary-cta>
+                            </div>
+
+                            <a href="{{ route('login') }}" class="block w-full text-center bg-lio-500 text-white p-2.5 lg:hidden">
+                                Login
+                            </a>
+                        </li>
+                        @else
+                        <li class="relative p-4 lg:p-0">
+                            <div class="flex items-center justify-center">
+                                <a href="{{ route('notifications') }}" class="hidden shrink-0 rounded-full lg:block">
+                                    <span class="block relative">
+                                        <x-heroicon-o-bell class="h-5 w-5 hover:fill-current hover:text-lio-500" />
+
+                                        <livewire:notification-indicator />
+                                    </span>
+                                </a>
+
+                                <x-avatar :user="Auth::user()" class="h-8 w-8 ml-5" />
+
+                                <div class="ml-2" @click.outside="settings = false">
+                                    <button @click="settings = !settings" class="flex items-center">
+                                        {{ Auth::user()->username() }}
+                                        <x-heroicon-s-chevron-down x-show="!settings" class="w-4 h-4 ml-1" />
+                                        <x-heroicon-s-chevron-left x-show="settings" class="w-4 h-4 ml-1" />
+                                    </button>
+                                </div>
+                            </div>
+
+                            <div x-show="settings" x-cloak class="mt-4 lg:mt-0">
+                                <ul class="flex flex-col items-center lg:absolute lg:items-stretch lg:ml-0 lg:mt-2 lg:w-36 lg:rounded-md lg:shadow-lg lg:z-50 lg:bg-white">
+                                    <li class="mb-4 lg:hover:bg-gray-100 lg:mb-0">
+                                        <a href="{{ route('profile') }}" class="inline-block w-full lg:px-4 lg:py-3">
+                                            Perfil
+                                        </a>
+                                    </li>
+
+                                    <li class="mb-4 lg:hover:bg-gray-100 lg:mb-0">
+                                        <a href="{{ route('user.articles') }}" class="inline-block w-full lg:px-4 lg:py-3">
+                                            Mis artículos
+                                        </a>
+                                    </li>
+
+                                    <li class="mb-4 lg:hover:bg-gray-100 lg:mb-0">
+                                        <a href="{{ route('settings.profile') }}" class="inline-block w-full lg:px-4 lg:py-3">
+                                            Configuración
+                                        </a>
+                                    </li>
+
+                                    @can(App\Policies\UserPolicy::ADMIN, App\Models\User::class)
+                                    <li class="mb-4 lg:hover:bg-gray-100 lg:mb-0 lg:border-t lg:border-b">
+                                        <a href="{{ route('admin') }}" class="inline-block w-full lg:px-4 lg:py-3">
+                                            Administrador
+                                        </a>
+                                    </li>
+                                    @endcan
+
+                                    <li class="mb-4 lg:hover:bg-gray-100 lg:mb-0">
+                                        <x-buk-logout class="inline-block w-full text-left lg:px-4 lg:py-3">
+                                            Cerrar sesión
+                                        </x-buk-logout>
+                                    </li>
+                                </ul>
+                            </div>
+                        </li>
+                        @endif
+                    </ul>
                 </div>
             </div>
         </div>
     </div>
 
-    <!-- Mobile menu, show/hide based on menu state. -->
-    <div class="sm:hidden" id="mobile-menu">
-        <div class="px-2 pt-2 pb-3 space-y-1">
-            <!-- Current: "bg-gray-900 text-white", Default: "text-gray-300 hover:bg-gray-700 hover:text-white" -->
-            <a href="#" class="bg-gray-900 text-white block px-3 py-2 rounded-md text-base font-medium" aria-current="page">Dashboard</a>
-
-            <a href="#" class="text-gray-300 hover:bg-gray-700 hover:text-white block px-3 py-2 rounded-md text-base font-medium">Team</a>
-
-            <a href="#" class="text-gray-300 hover:bg-gray-700 hover:text-white block px-3 py-2 rounded-md text-base font-medium">Projects</a>
-
-            <a href="#" class="text-gray-300 hover:bg-gray-700 hover:text-white block px-3 py-2 rounded-md text-base font-medium">Calendar</a>
-        </div>
-    </div>
+    @yield('subnav')
 </nav>

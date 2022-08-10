@@ -131,7 +131,6 @@
         </div>
     </section> -->
     <!-- /Search -->
-
     <!-- Help others -->
     <section class="mt-12 container mx-auto lg:mt-24 lg:px-16">
         <div class="px-4 lg:px-0">

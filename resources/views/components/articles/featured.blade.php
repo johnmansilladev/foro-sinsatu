@@ -1,7 +1,7 @@
 @props(['articles'])
 
-@unless ($articles->count() < 4)
-    <!-- <div class="flex flex-col gap-y-8 lg:flex-row lg:gap-x-8 lg:mb-16">
+<!-- @unless ($articles->count() < 4)
+    <div class="flex flex-col gap-y-8 lg:flex-row lg:gap-x-8 lg:mb-16">
         <div class="w-full lg:w-1/3">
             <x-articles.summary 
                 :article="$articles->first()"
@@ -25,8 +25,36 @@
                 <x-articles.summary :article="$articles->get(3)" />
             </div>
         </div>
-    </div> -->
-    <div>
-        
     </div>
-@endunless
+@endunless -->
+@unless ($articles->count() < 4) @foreach($articles as $i=> $article)
+
+    
+    <div class="w-full">
+        <div class="flex w-full divide-y divide-slate-700">
+            <div class="w-1/12">
+                <img src="https://avatars.githubusercontent.com/u/47313528?v=4" alt="..." class="shadow rounded-full max-w-full h-auto align-middle border-none flex justify-center" width="50px"  height="50px"/>
+
+            </div>
+            <div class="w-7/12">
+                 <x-articles.summary :article="$articles->get(3)" />
+            </div>
+            <div class="w-2/12 flex justify-center ">
+                <span class=" inline-block align-middle text-gray-400 dark:text-slate-400">
+                    12
+                </span>
+            </div>
+            <div class="w-2/12 flex justify-center ">
+                <span class=" inline-block align-middle text-gray-400 dark:text-slate-400">
+                    12
+                </span>
+            </div>
+        </div>
+    </div>
+
+
+
+    @endforeach
+
+
+    @endunless

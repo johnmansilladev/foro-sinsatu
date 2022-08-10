@@ -40,7 +40,7 @@
                 {{ $notifications->links() }}
             @else
                 <p class="text-gray-600 text-base">
-                    You have no unread notifications
+                    No tienes notificaciones por leer
                 </p>
             @endif
         </div>
