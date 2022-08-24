@@ -24,11 +24,21 @@
                 Submit your article to the Sinsatu portal. Every article that gets approved will be shared with our 45.000 users and wil be tweeted out on our <a href="https://twitter.com/laravelio" class="text-lio-700 underline">Twitter account</a> which has over 45,000 followers. Feel free to submit as many articles as you like. You can even cross-reference an article on your blog with the original url.
             </x-forms.info> -->
 
+            <!--
+            DESCOMENTAR ESTO E EN CASO SE LLEGUE A ACTIVAR LA OPCION DE APROBACIÓN PREVIA A PUBLICACIÓN DE ARTÍCULO
+            ESPAÑOL
             <x-forms.info class="px-0">
                 Tras el envío para su aprobación, los artículos se revisan antes de ser publicados. No se notificarán los artículos rechazados. 
                 En cambio, le animamos a que publique también los artículos en su propio canal. 
                 <strong>Una vez publicado, ya no puedes editar tu artículo, así que revísalo bien antes de enviarlo para su aprobación.</strong>
-            </x-forms.info>
+            </x-forms.info> 
+            INGLÉS
+            <x-forms.info class="px-0">
+                 After submission for approval, articles are reviewed before publication. Rejected articles will not be notified. 
+                Instead, we encourage you to publish articles in your own channel as well.
+                <strong>Once published, you can no longer edit your article, so review it thoroughly before submitting it for approval.</strong>
+            </x-forms.info> 
+            --> 
 
             <x-rules-banner />
         </div>
@@ -41,7 +51,7 @@
                     <x-forms.inputs.input name="title" :value="old('title', $article?->title())" required maxlength="100" />
 
                     <span class="mt-2 text-sm text-gray-500">
-                        100 caracteres como máximo
+                    Maximum 100 characters
                     </span>
                 </div>
             </div>
@@ -59,12 +69,12 @@
             <div class="grow space-y-6">
                 <div class="grow space-y-6">
                     <div class="space-y-1">
-                        <x-forms.label for="original_url">Link del post original</x-forms.label>
+                        <x-forms.label for="original_url">Original post link</x-forms.label>
 
                         <x-forms.inputs.input name="original_url" :value="old('original_url', $article?->originalUrl())" />
 
                         <span class="mt-2 text-sm text-gray-500">
-                            Si ya ha publicado este artículo en su propio sitio, introduzca la URL aquí y el contenido se le atribuirá a usted.
+                        If you have already published this article on your own site, enter the URL here and the content will be attributed to you.
                         </span>
                     </div>
                 </div>
@@ -87,12 +97,12 @@
             <div class="md:flex md:items-center md:justify-between">
                 <x-forms.info class="px-0">
                     <span class="font-bold">Nota: </span>
-                    Ya no se puede editar un artículo después de haberlo publicado.
+                    You can no longer edit an article after it has been published.
                 </x-forms.info>
 
                 <div class="flex justify-end items-center">
                     <a href="{{ isset($article) ? route('articles.show', $article->slug()) : route('user.articles') }}" class="text-lio-700 mr-4">
-                        Cancelar
+                        Cancel
                     </a>
 
                     @if (isset($article) && $article->isSubmitted())
@@ -102,7 +112,7 @@
                             value="1"
                             class="button button-primary"
                         >
-                            Guardar cambios
+                            Save changes
                         </button>
                     @else
                         <span class="relative z-0 inline-flex shadow-sm" x-data="{ showDropdown: false }" @click.outside="showDropdown = false">
@@ -112,7 +122,7 @@
                                 value="0"
                                 class="button button-primary button-dropdown-left relative inline-flex items-center focus:outline-none"
                             >
-                                Guardar borrador
+                                Save draft
                             </button>
                             <span class="-ml-px relative block">
                                 <button
@@ -133,7 +143,7 @@
                                                 value="1"
                                                 class="block px-4 py-2 text-sm leading-5 text-gray-700 hover:bg-gray-100 hover:text-gray-900 focus:outline-none focus:bg-gray-100 focus:text-gray-900 w-full text-left"
                                             >
-                                                Guardar y enviar para su aprobación
+                                                Publish article
                                             </button>
                                         </div>
                                     </div>
@@ -143,14 +153,6 @@
                     @endif
                 </div>
             </div>
-
-            <!-- @unless (Auth::user()->twitter())
-                <span class="text-gray-600 text-sm mt-4 block">
-                    Articles will be shared on Twitter.
-                    <a href="{{ route('settings.profile') }}" class="text-green-darker">Add your Twitter handle</a>
-                    and we'll include that too.
-                </span>
-            @endunless -->
         </div>
     </div>
 </x-buk-form>

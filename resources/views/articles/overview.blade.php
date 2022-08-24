@@ -3,25 +3,7 @@
 
 @extends('layouts.default')
 
-@section('content')
-
-    <div class="bg-[#204051]">
-        <div class="max-w-7xl mx-auto py-12 px-4 sm:px-6 lg:py-20 lg:px-8 lg:flex lg:items-center lg:justify-between">
-            <h2 class="text-2xl font-extrabold tracking-tight text-white md:text-3xl">
-                <span class="block">¿Algún conocimiento por compartir?</span>
-                <!-- <span class="block">
-                    Comparte tu artículo con <a href="https://twitter.com/laravelio" class="text-lio-500 hover:text-lio-600 hover:underline">our 45,000 Twitter followers</a>.
-                </span> -->
-            </h2>
-            <div class="mt-8 flex lg:mt-0 lg:shrink-0">
-                <div class="inline-flex rounded-md shadow">
-                    <x-buttons.secondary-button href="{{ route('articles.create') }}" class="px-5 py-3 text-base font-medium">
-                        Comparte tu artículo
-                    </x-buttons.secondary-button>
-                </div>
-            </div>
-        </div>
-    </div>
+@section('content')   
 
     <div class="pt-5 pb-10 shadow-inner lg:pt-16 lg:pb-0" id="articles">
         <div class="container mx-auto flex flex-col gap-x-12 px-4 lg:flex-row">
@@ -29,8 +11,13 @@
                 <div class="flex justify-between items-center lg:block">
                     <div class="flex justify-between items-center">
                         <h1 class="text-4xl text-gray-900 font-bold">
-                            Artículos
+                            Articles
                         </h1>
+                        <div>
+                        <x-buttons.secondary-button href="{{ route('articles.create') }}" class="px-5 py-3 text-base font-medium">
+                            Share your article
+                        </x-buttons.secondary-button>
+                        </div>
                     </div>
 
                     <div class="flex items-center justify-between lg:mt-6">
@@ -44,7 +31,7 @@
                             <div class="shrink-0">
                                 <x-buttons.secondary-button class="flex items-center gap-x-2" @click="activeModal = 'tag-filter'">
                                     <x-heroicon-o-filter class="w-5 h-5" />
-                                    Filtro de tags
+                                    Tags
                                 </x-buttons.secondary-button>
                             </div>
                         </div>
@@ -73,14 +60,14 @@
                             <x-buttons.secondary-cta class="w-full" @click="activeModal = 'tag-filter'">
                                 <span class="flex items-center gap-x-2">
                                     <x-heroicon-o-filter class="w-5 h-5" />
-                                    Filtro de tags
+                                    Tags
                                 </span>
                             </x-buttons.secondary-cta>
                         </div>
 
                         <div class="w-1/2">
                             <x-buttons.primary-cta href="{{ route('articles.create') }}" class="w-full">
-                                Crea un artículo
+                                Create article
                             </x-buttons.primary-cta>
                         </div>
                     </div>
@@ -135,9 +122,9 @@
                     @include('layouts._ads._forum_sidebar')
                 </div> -->
 
-                <div class="bg-white shadow rounded-md mt-6">
+                <div class="bg-white shadow rounded-md mt-6">                   
                     <h3 class="text-xl font-semibold px-5 pt-5">
-                        Top especialistas
+                        Top members
                     </h3>
 
                     <ul>

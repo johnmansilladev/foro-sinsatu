@@ -75,7 +75,7 @@
 
                 <button class="flex gap-x-2 p-3 rounded hover:bg-gray-100" @click="activeModal = 'deleteReply-{{ $reply->id }}'">
                     <x-heroicon-o-trash class="w-6 h-6 text-red-500"/>
-                    Eliminar
+                    Delete
                 </button>
             </div>
         </div>
@@ -85,7 +85,7 @@
                 :action="route('replies.delete', $reply->id())"
                 title="Delete Reply"
             >
-            <p>¿Estás seguro de que pueds eliminar esyta respuesta? Esta acción no se puede deshacer</p>
+            <p>¿Estás seguro de que puedes eliminar esta respuesta? Esta acción no se puede deshacer</p>
         </x-modal>
     @endcan
 </div>

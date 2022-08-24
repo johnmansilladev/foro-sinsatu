@@ -1,6 +1,3 @@
-<!-- <section class="mt-12 lg:mt-40">
-    @include('layouts._sponsors')
-</section> -->
 <footer class="p-4 bg-white shadow md:px-6 md:py-8 dark:bg-black">
     <div class="sm:flex sm:items-center sm:justify-between">
         <a href="#" class="flex items-center mb-4 sm:mb-0">

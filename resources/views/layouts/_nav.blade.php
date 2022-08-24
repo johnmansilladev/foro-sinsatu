@@ -1,5 +1,5 @@
 <nav class="{{ isset($hasShadow) ? 'shadow mb-1' : '' }} dark:bg-black">
-    <div class="container mx-auto text-gray-800 lg:block lg:py-8" x-data="navConfig()" @click.outside="nav = false">
+    <div class="container mx-auto text-gray-800 lg:block lg:py-4" x-data="navConfig()" @click.outside="nav = false">
         <div class="block bg-white dark:bg-black 2xl:-mx-10">
             <div class="lg:px-4 lg:flex">
                 <div class="block lg:flex lg:items-center lg:shrink-0">
@@ -9,16 +9,16 @@
                         </a>
 
                         <div class="flex lg:hidden">
-                            <button @click="showSearch($event)">
-                                <x-heroicon-o-search class="w-6 h-6 mr-4" />
+                            <button @click="showSearch($event)" class="">
+                                <x-heroicon-o-search class="w-6 h-6 mr-4 dark:text-white dark:hover:text-blue-500" />
                             </button>
 
                             <button @click="nav = !nav">
-                                <x-heroicon-o-menu-alt-1 x-show="!nav" class="w-6 h-6" />
+                                <x-heroicon-o-menu-alt-1 x-show="!nav" class="w-6 h-6 dark:text-white dark:hover:text-blue-500" />
                             </button>
 
                             <button @click="nav = !nav" x-cloak>
-                                <x-heroicon-o-x x-show="nav" class="w-6 h-6" />
+                                <x-heroicon-o-x x-show="nav" class="w-6 h-6 dark:text-white dark:hover:text-blue-500" />
                             </button>
                         </div>
                     </div>
@@ -27,134 +27,27 @@
                         <ul class="flex flex-col px-4 mb-2 gap-y-2 lg:flex-row lg:mb-0 lg:gap-6 dark:text-white">
                             <li class="rounded lg:mb-0 lg:hover:bg-black @if(is_active(['forum', 'threads*', 'thread'])) bg-white text-black @endif">
                                 <a href="{{ route('forum') }}" class="inline-block w-full px-2 py-1">
-                                    Foros
+                                    Forum
                                 </a>
                             </li>
 
                             <li class="rounded lg:mb-0 lg:hover:bg-black @if(is_active(['articles', 'articles*'])) bg-white text-black @endif">
                                 <a href="{{ route('articles') }}" class="inline-block w-full px-2 py-1">
-                                    Artículos
+                                    Articles
                                 </a>
                             </li>
-
-                            <!-- <li class="rounded lg:mb-0 lg:hover:bg-gray-100">
-                                <a href="https://paste.laravel.io" class="inline-block w-full px-2 py-1">
-                                    Pastebin
+                            <li class="rounded lg:mb-0 lg:hover:bg-black">
+                                <a href="{{ route('articles') }}" class="inline-block w-full px-2 py-1">
+                                    Share links
                                 </a>
                             </li>
-
-                            <li class="rounded lg:mb-0 lg:hover:bg-gray-100">
-                                <div @click.outside="chat = false" class="relative">
-                                    <div>
-                                        <button @click="chat = !chat" class="flex items-center lg:mb-0 py-1 px-2">
-                                            Chat
-                                            <x-heroicon-s-chevron-down x-show="!chat" class="w-4 h-4 ml-1"/>
-                                            <x-heroicon-s-chevron-left x-cloak x-show="chat" class="w-4 h-4 ml-1"/>
-                                        </button>
-                                    </div>
-                                    <div x-show="chat" x-cloak>
-                                        <ul class="ml-4 lg:absolute lg:flex lg:flex-col lg:ml-0 lg:mt-2 lg:w-36 lg:rounded-md lg:shadow-lg lg:z-50 lg:bg-white">
-                                            <li class="my-4 lg:hover:bg-gray-100 lg:my-0">
-                                                <a href="https://discord.gg/KxwQuKb" class="inline-block w-full lg:px-4 lg:py-3">
-                                                    <x-si-discord class="w-4 h-4 inline text-discord" />
-                                                    Discord
-                                                </a>
-                                            </li>
-
-                                            <li class="mb-4 lg:hover:bg-gray-100 lg:mb-0">
-                                                <a href="https://larachat.co" class="inline-block w-full lg:px-4 lg:py-3">
-                                                    <x-si-slack class="w-4 h-4 inline text-red-400" />
-                                                    Larachat
-                                                </a>
-                                            </li>
-
-                                            <li class="hover:bg-gray-100">
-                                                <a href="https://web.libera.chat/?nick=laravelnewbie&channels=#laravel" class="inline-block w-full lg:px-4 lg:py-3">
-                                                    <x-heroicon-s-chat class="w-4 h-4 inline text-green-500" />
-                                                    IRC
-                                                </a>
-                                            </li>
-                                        </ul>
-                                    </div>
-                                </div>
-                            </li>
-
-                            <li class="rounded lg:mb-0 lg:hover:bg-gray-100">
-                                <div @click.outside="community = false" class="relative">
-                                    <button @click="community = !community" class="flex items-center lg:mb-0 py-1 px-2">
-                                        Community
-                                        <x-heroicon-s-chevron-down x-show="!community" class="w-4 h-4 ml-1"/>
-                                        <x-heroicon-s-chevron-left x-cloak x-show="community" class="w-4 h-4 ml-1"/>
-                                    </button>
-
-                                    <div x-show="community" x-cloak>
-                                        <ul class="ml-4 lg:absolute lg:flex lg:flex-col lg:ml-0 lg:mt-2 lg:w-48 lg:rounded-md lg:shadow-lg lg:z-50 lg:bg-white">
-                                            <li class="my-4 lg:hover:bg-gray-100 lg:my-0">
-                                                <a href="https://github.com/laravelio" class="inline-block w-full lg:px-4 lg:py-3">
-                                                    <x-icon-github class="w-4 h-4 inline"/>
-                                                    Github
-                                                </a>
-                                            </li>
-
-                                            <li class="mb-4 lg:hover:bg-gray-100 lg:mb-0">
-                                                <a href="https://twitter.com/laravelio" class="inline-block w-full lg:px-4 lg:py-3">
-                                                    <x-icon-twitter class="w-4 h-4 inline text-twitter"/>
-                                                    Twitter
-                                                </a>
-                                            </li>
-
-                                            <li class="mb-4 lg:hover:bg-gray-100 lg:mb-0">
-                                                <a href="https://laravel.com" class="inline-block w-full lg:px-4 lg:py-3">
-                                                    <img src="{{ asset('images/laravel.png') }}" alt="Laravel" class="w-4 h-4 inline" />
-                                                    Laravel
-                                                </a>
-                                            </li>
-
-                                            <li class="mb-4 lg:hover:bg-gray-100 lg:mb-0">
-                                                <a href="https://laracasts.com" class="inline-block w-full lg:px-4 lg:py-3">
-                                                    <img src="{{ asset('images/laracasts.png') }}" alt="Laracasts" class="w-4 h-4 inline" />
-                                                    Laracasts
-                                                </a>
-                                            </li>
-
-                                            <li class="mb-4 lg:hover:bg-gray-100 lg:mb-0">
-                                                <a href="https://laravel-news.com" class="inline-block w-full lg:px-4 lg:py-3">
-                                                    <img src="{{ asset('images/laravel-news.png') }}" alt="Laravel News" class="w-4 h-4 inline" />
-                                                    Laravel News
-                                                </a>
-                                            </li>
-
-                                            <li class="mb-4 lg:hover:bg-gray-100 lg:mb-0">
-                                                <a href="https://laravelevents.com" class="inline-block w-full lg:px-4 lg:py-3">
-                                                    <img src="{{ asset('images/laravel.png') }}" alt="Laravel" class="w-4 h-4 inline" />
-                                                    Laravel Events
-                                                </a>
-                                            </li>
-
-                                            <li class="mb-4 lg:hover:bg-gray-100 lg:mb-0">
-                                                <a href="https://www.laravelpodcast.com" class="inline-block w-full lg:px-4 lg:py-3">
-                                                    <img src="{{ asset('images/podcast.png') }}" alt="Laravel Podcast" class="w-4 h-4 inline" />
-                                                    Podcast
-                                                </a>
-                                            </li>
-
-                                            <li class="hover:bg-gray-100">
-                                                <a href="https://ecosystem.laravel.io" class="inline-block w-full lg:px-4 lg:py-3">
-                                                    <img src="{{ asset('images/laravelio-icon.svg') }}" alt="Laravel Podcast" class="w-4 h-4 inline" />
-                                                    Ecosystem
-                                                </a>
-                                            </li>
-                                        </ul>
-                                    </div>
-                                </div>
-                            </li> -->
                         </ul>
                     </div>
                 </div>
 
                 <div class="w-full block gap-x-4 lg:flex lg:items-center lg:justify-end">
                     <div class="flex items-center">
-                        <button @click="showSearch($event)" @keyup.window.slash="showSearch($event)" class="hover:text-lio-500">
+                        <button @click="showSearch($event)" @keyup.window.slash="showSearch($event)" class="dark:text-white dark:hover:text-blue-500">
                             <x-heroicon-o-search class="h-5 w-5 hidden lg:block" />
                         </button>
                         @include('_partials._search')
@@ -162,32 +55,45 @@
 
                     <ul class="block lg:flex lg:items-center gap-x-8" x-cloak :class="{ 'block': nav, 'hidden': !nav }">
                         @if (Auth::guest())
-                        <li class="w-full rounded text-center lg:hover:bg-gray-100">
+                        <!--  <li class="w-full rounded text-center lg:hover:bg-gray-100 dark:text-white dark:bg-inherit dark:lg:hover:bg-white dark:lg:hover:text-black">
                             <a href="{{ route('register') }}" class="inline-block w-full  p-2.5">
-                                Registrarse
+                                Register
+                            </a>
+                        </li> -->
+                        <li>
+                            <a href="{{ route('register') }}" class="inline-block w-full">
+                                <button type="button" class="text-white bg-gray-800 hover:bg-gray-900 focus:outline-none 
+                                focus:ring-4 focus:ring-gray-300 font-medium rounded-lg text-sm px-5 
+                                py-2.5 mr-2 mb-2 dark:bg-gray-800 dark:hover:bg-gray-700 dark:focus:ring-gray-700 dark:border-gray-700">Register</button>
                             </a>
                         </li>
 
                         <li>
                             <div class="hidden lg:block">
-                                <x-buttons.secondary-cta class="flex items-center" href="{{ route('login') }}">
+                                <!-- <x-buttons.secondary-cta class="flex items-center" href="{{ route('login') }}">
                                     <span class="flex items-center">
                                         <x-heroicon-o-user class="w-5 h-5 mr-1" />
                                         Login
                                     </span>
-                                </x-buttons.secondary-cta>
+                                </x-buttons.secondary-cta> -->
+                                <a href="{{ route('login') }}" class="inline-block w-full">
+                                <button type="button" class="text-white bg-gray-800 hover:bg-gray-900 focus:outline-none 
+                                focus:ring-4 focus:ring-gray-300 font-medium rounded-lg text-sm px-5 
+                                py-2.5 mr-2 mb-2 dark:bg-gray-800 dark:hover:bg-gray-700 dark:focus:ring-gray-700 dark:border-gray-700">Login</button>
+                                </a>
                             </div>
 
                             <a href="{{ route('login') }}" class="block w-full text-center bg-lio-500 text-white p-2.5 lg:hidden">
                                 Login
                             </a>
                         </li>
+                        
                         @else
                         <li class="relative p-4 lg:p-0">
                             <div class="flex items-center justify-center">
                                 <a href="{{ route('notifications') }}" class="hidden shrink-0 rounded-full lg:block">
                                     <span class="block relative">
-                                        <x-heroicon-o-bell class="h-5 w-5 hover:fill-current hover:text-lio-500" />
+                                        <x-heroicon-o-bell class="h-5 w-5 hover:fill-current hover:text-lio-500 dark:text-white dark:hover:text-blue-500" />
 
                                         <livewire:notification-indicator />
                                     </span>
@@ -208,44 +114,54 @@
                                 <ul class="flex flex-col items-center lg:absolute lg:items-stretch lg:ml-0 lg:mt-2 lg:w-36 lg:rounded-md lg:shadow-lg lg:z-50 lg:bg-white">
                                     <li class="mb-4 lg:hover:bg-gray-100 lg:mb-0">
                                         <a href="{{ route('profile') }}" class="inline-block w-full lg:px-4 lg:py-3">
-                                            Perfil
+                                            Profile
                                         </a>
                                     </li>
 
                                     <li class="mb-4 lg:hover:bg-gray-100 lg:mb-0">
                                         <a href="{{ route('user.articles') }}" class="inline-block w-full lg:px-4 lg:py-3">
-                                            Mis artículos
+                                            My articles
                                         </a>
                                     </li>
 
                                     <li class="mb-4 lg:hover:bg-gray-100 lg:mb-0">
                                         <a href="{{ route('settings.profile') }}" class="inline-block w-full lg:px-4 lg:py-3">
-                                            Configuración
+                                            Settings
                                         </a>
                                     </li>
 
                                     @can(App\Policies\UserPolicy::ADMIN, App\Models\User::class)
                                     <li class="mb-4 lg:hover:bg-gray-100 lg:mb-0 lg:border-t lg:border-b">
                                         <a href="{{ route('admin') }}" class="inline-block w-full lg:px-4 lg:py-3">
-                                            Administrador
+                                            Admin
                                         </a>
                                     </li>
                                     @endcan
 
                                     <li class="mb-4 lg:hover:bg-gray-100 lg:mb-0">
                                         <x-buk-logout class="inline-block w-full text-left lg:px-4 lg:py-3">
-                                            Cerrar sesión
+                                            Log out
                                         </x-buk-logout>
                                     </li>
                                 </ul>
                             </div>
                         </li>
                         @endif
+                        <li>
+                            <button id="theme-toggle" type="button" class="text-gray-500 dark:text-gray-400 hover:bg-gray-100 dark:hover:bg-gray-700 focus:outline-none focus:ring-4 focus:ring-gray-200 dark:focus:ring-gray-700 rounded-lg text-sm p-2.5">
+                                <svg id="theme-toggle-dark-icon" class="hidden w-5 h-5" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
+                                    <path d="M17.293 13.293A8 8 0 016.707 2.707a8.001 8.001 0 1010.586 10.586z"></path>
+                                </svg>
+                                <svg id="theme-toggle-light-icon" class="hidden w-5 h-5" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
+                                    <path d="M10 2a1 1 0 011 1v1a1 1 0 11-2 0V3a1 1 0 011-1zm4 8a4 4 0 11-8 0 4 4 0 018 0zm-.464 4.95l.707.707a1 1 0 001.414-1.414l-.707-.707a1 1 0 00-1.414 1.414zm2.12-10.607a1 1 0 010 1.414l-.706.707a1 1 0 11-1.414-1.414l.707-.707a1 1 0 011.414 0zM17 11a1 1 0 100-2h-1a1 1 0 100 2h1zm-7 4a1 1 0 011 1v1a1 1 0 11-2 0v-1a1 1 0 011-1zM5.05 6.464A1 1 0 106.465 5.05l-.708-.707a1 1 0 00-1.414 1.414l.707.707zm1.414 8.486l-.707.707a1 1 0 01-1.414-1.414l.707-.707a1 1 0 011.414 1.414zM4 11a1 1 0 100-2H3a1 1 0 000 2h1z" fill-rule="evenodd" clip-rule="evenodd"></path>
+                                </svg>
+                            </button>
+                        </li>
                     </ul>
                 </div>
             </div>
         </div>
     </div>
 
-    @yield('subnav')
+    <!--  @yield('subnav') -->
 </nav>

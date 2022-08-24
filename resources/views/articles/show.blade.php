@@ -13,7 +13,7 @@
                 </x-info-banner>
             @elseif ($article->isPublished())
                 <x-info-banner>
-                Su artículo ya está publicado y no se puede editar más. Si desea realizar algún cambio en el artículo, envíe un correo electrónico a  <a href="mailto:hello@laravel.io">johnmansillaprada@gmail.com</a>
+                Your article is already published and can no longer be edited. If you wish to make any changes to the article, please send an email to  <a href="mailto:hello@laravel.io">johnmansillaprada@gmail.com</a>
                 </x-info-banner>
             @endif
         @endauth
@@ -31,7 +31,7 @@
                             @if ($article->isNotPublished())
                                 <x-light-tag>
                                     @if ($article->isAwaitingApproval())
-                                        En espera de la aprobación.
+                                        Pending approval
                                     @else
                                         Borrador
                                     @endif
@@ -71,12 +71,12 @@
                             </span>
 
                             <span class="text-sm">
-                                Leído hace {{ $article->readTime() }} min
+                                Read {{ $article->readTime() }} min ago
                             </span>
 
                             @unless($article->viewCount() < 10)
                                 <span class="text-sm">
-                                    {{ $article->viewCount() }} vistas
+                                    {{ $article->viewCount() }} views
                                 </span>
                             @endunless
                         </div>
@@ -108,7 +108,7 @@
 
                     @if ($article->isUpdated())
                         <div class="text-sm text-gray-900 py-6">
-                            Última actualización {{ $article->updated_at->diffForHumans() }}.
+                            Last update {{ $article->updated_at->diffForHumans() }}.
                         </div>
                     @endif
 
@@ -116,9 +116,9 @@
                         <livewire:like-article :article="$article" :isSidebar="false" />
 
                         <div class="flex flex-col text-gray-900 text-xl font-semibold">
-                            ¿Te gusta este artículo?
+                            Do you like this article?
                             <span class="text-lg font-medium">
-                                Haz saber al autor que te gustó el artículo
+                            Let the author know you liked the article
                             </span>
                         </div>
                     </div>
@@ -164,7 +164,7 @@
     <section>
         <div class="container mx-auto py-6 px-4 lg:py-24">
             <h2 class="text-4xl text-gray-900 font-bold">
-                Otros artículos que quizá te interesen
+                Other articles that may interest you
             </h2>
 
             <div class="flex flex-col gap-y-4 gap-x-6 mt-6 lg:flex-row lg:mt-12">
@@ -186,7 +186,7 @@
                 title="Aprobar artículo"
                 type="update"
             >
-                <p>¿Estás seguro de aprobar este artículo?</p>
+                <p>Are you sure you approve of this article?</p>
             </x-modal>
         @endif
     @endcan
@@ -199,7 +199,7 @@
                 title="Anular publicación"
                 type="update"
             >
-                <p>¿Está seguro de que quiere anular la publicación de este artículo? Si lo hace, dejará de estar activo en el sitio.</p>
+                <p>Are you sure you want to unpublish this article? If you do, it will no longer be active on the site.</p>
             </x-modal>
         @endif
     @endcan
@@ -212,7 +212,7 @@
                 title="Decline article"
                 type="update"
             >
-                <p>¿Está seguro de que quiere rechazar este artículo? Si lo hace, lo eliminará permanentemente de la cola de revisión.</p>
+                <p>Are you sure you want to reject this item? Doing so will permanently remove it from the review queue.</p>
             </x-modal>
         @endif
     @endcan
@@ -223,7 +223,7 @@
             :action="route('articles.delete', $article->slug())"
             title="Delete article"
         >
-            <p>¿Está seguro de que quiere eliminar este artículo? Si lo hace, se eliminará permanentemente del sitio.</p>
+            <p>Are you sure you want to delete this article? If you do, it will be permanently removed from the site.</p>
         </x-modal>
     @endcan
 
@@ -235,9 +235,9 @@
             type="update"
         >
             @if ($article->isPinned())
-                <p>¿Estás seguro de que quieres desenganchar este artículo?</p>
+                <p>Are you sure you want to unhook this article?</p>
             @else
-                <p>¿Estás seguro de que quieres fijar este artículo?</p>
+                <p>Are you sure you want to fix this item?</p>
             @endif
         </x-modal>
     @endcan

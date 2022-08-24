@@ -50,6 +50,9 @@ final class CreateArticle
             'original_url' => $this->originalUrl,
             'slug' => $this->title,
             'submitted_at' => $this->shouldBeSubmitted ? now() : null,
+            'approved_at' => now()/*Se agregó la inserción de este campo ya que por el momento no se requiere la 
+            aprobación del admin para puiblicar el artículo, directamente el usuario publica su artículo*/
+
         ]);
         $article->authoredBy($this->author);
         $article->syncTags($this->tags);

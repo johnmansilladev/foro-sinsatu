@@ -1,4 +1,4 @@
-@title('Regístrate')
+@title('Sign up')
 
 @extends('layouts.small')
 

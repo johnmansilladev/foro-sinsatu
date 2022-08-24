@@ -24,10 +24,10 @@
                 </a>
             </h4>
         @endif
-        <span class="font-mono text-gray-700 leading-6 mb-2 block dark:text-slate-400 text-xs">
+        <span class="font-mono text-gray-700 leading-6 mb-2 block dark:text-slate-400 text-sm">
             {{ $article->submittedAt()->format('F jS Y') }}
         </span>
-        <p class="text-gray-800 leading-7 mb-3 dark:text-slate-400 text-xs">
+        <p class="text-gray-800 leading-7 mb-3 dark:text-gray-300 text-sm">
             {{ $article->excerpt() }}
         </p>
     </div>

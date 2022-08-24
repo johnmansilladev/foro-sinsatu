@@ -3,7 +3,7 @@
 
 @extends('layouts.default', ['hasShadow' => true])
 
-@section('subnav')
+<!-- @section('subnav')
     <section class="container flex justify-between mx-auto bg-white pb-4 px-4 lg:pb-10">
         <h1 class="flex items-center gap-x-3.5 text-xl font-semibold lg:text-3xl">
             <a href="{{ route('forum') }}" class="text-gray-400 hover:underline">Forum</a>
@@ -15,10 +15,21 @@
             @endif
         </h1>
     </section>
-@endsection
+@endsection -->
 
 @section('content')
-    <section class="pt-5 pb-10 px-4 container mx-auto flex flex-col gap-x-12 lg:flex-row lg:pt-10 lg:pb-0">
+    <section class="container flex justify-between mx-auto bg-inherit pb-4 px-4 lg:py-4">
+        <h1 class="flex items-center gap-x-3.5 text-xl font-semibold lg:text-3xl">
+            <a href="{{ route('forum') }}" class="text-gray-400 hover:underline">Forum</a>
+            <x-heroicon-o-chevron-right class="w-6 h-6" />
+            <span class="break-all">{{ $title }}</span>
+
+            @if ($thread->isLocked())
+                <x-heroicon-o-lock-closed class="w-5 h-5" />
+            @endif
+        </h1>
+    </section>
+    <section class="pt-5 pb-10 px-4 container mx-auto flex flex-col gap-x-12 lg:flex-row lg:pb-0">
         <div class="w-full lg:w-3/4">
             @auth
                 @if (! $thread->isSolved() && $thread->isAuthoredBy(Auth::user()))

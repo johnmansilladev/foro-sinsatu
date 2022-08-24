@@ -20,7 +20,7 @@
         aria-current="{{ $selectedFilter === 'trending' ? 'page' : 'false' }}"
         class="flex items-center gap-x-2 justify-center font-medium rounded-r px-5 py-2 border {{ $selectedFilter === 'trending' ? 'bg-gray-900 text-white  border-gray-900 hover:bg-gray-800' : 'bg-white text-gray-800 border-gray-200 hover:bg-gray-100' }}"
     >
-        Tendencia
+        Hot
         <x-heroicon-o-fire class="w-5 h-5" />
     </a>
 </div>

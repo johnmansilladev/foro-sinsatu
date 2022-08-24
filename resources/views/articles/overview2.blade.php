@@ -4,11 +4,11 @@
 @extends('layouts.default')
 
 @section('content')
-    <!-- <div class="bg-white pt-5 lg:pt-2">
+    <div class="bg-white pt-5 lg:pt-2">
         <div class="container mx-auto flex flex-col gap-x-12 px-4 lg:flex-row">
             <x-articles.featured :articles="$pinnedArticles" />
         </div>
-    </div> -->
+    </div>
 
     <div class="bg-[#204051]">
         <div class="max-w-7xl mx-auto py-12 px-4 sm:px-6 lg:py-20 lg:px-8 lg:flex lg:items-center lg:justify-between">
@@ -34,7 +34,7 @@
                 <div class="flex justify-between items-center lg:block">
                     <div class="flex justify-between items-center">
                         <h1 class="text-4xl text-gray-900 font-bold">
-                            Artículos
+                            Articles
                         </h1>
                     </div>
 

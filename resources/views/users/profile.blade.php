@@ -135,7 +135,7 @@
                         </div>
 
                         <div class="w-full flex justify-between px-5 py-2.5">
-                            <span>Artículos</span>
+                            <span>Articles</span>
                             <span class="text-lio-500">
                                 {{ number_format($user->countArticles()) }}
                             </span>
@@ -143,14 +143,14 @@
                     </div>
                 </div>
             </div>
-            <div>
+           <!--  <div>
                 <h1>Building profile... </h1>
                 jmansilla
-            </div>
-           <!--  @if ($articles->count() > 0)
+            </div> -->
+            @if ($articles->count() > 0)
                 <div class="mt-10 px-4 lg:mt-28">
                     <h2 class="text-3xl font-semibold">
-                        Artículos
+                        Articles
                     </h2>
 
                     <div class="mt-8 flex flex-col gap-y-8 lg:flex-row lg:gap-x-8 lg:mb-16">
@@ -161,10 +161,10 @@
                         @endforeach
                     </div>
                 </div>
-            @endif -->
+            @endif
         </div>
 
-        <!-- <div class="mt-16 lg:mt-32" x-data="{ tab: 'threads' }">
+        <div class="mt-16 lg:mt-32" x-data="{ tab: 'threads' }">
             <div class="container mx-auto">
                 <nav class="flex items-center justify-between lg:justify-start">
                     <button @click="tab = 'threads'" :class="{ 'text-lio-500 border-lio-500 border-b-2': tab === 'threads' }"  class="px-4 whitespace-nowrap py-5 font-medium text-lg text-gray-900 hover:text-lio-500 hover:border-lio-500 focus:outline-none focus:text-lio-500 focus:border-lio-500 lg:w-1/3">
@@ -187,7 +187,7 @@
                     </div>
                 </div>
             </div>
-        </div> -->
+        </div>
     </section>
 
     @can(App\Policies\UserPolicy::BLOCK, $user)
