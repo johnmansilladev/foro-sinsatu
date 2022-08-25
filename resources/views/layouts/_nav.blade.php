@@ -38,7 +38,12 @@
                             </li>
                             <li class="rounded lg:mb-0 lg:hover:bg-black">
                                 <a href="{{ route('articles') }}" class="inline-block w-full px-2 py-1">
-                                    Share links
+                                    Rules
+                                </a>
+                            </li>
+                            <li class="rounded lg:mb-0 lg:hover:bg-black">
+                                <a href="{{ route('articles') }}" class="inline-block w-full px-2 py-1">
+                                    Members
                                 </a>
                             </li>
                         </ul>
