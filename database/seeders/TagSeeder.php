@@ -91,7 +91,7 @@ class TagSeeder extends Seeder
         }
 
         foreach ($threads as $thread) {
-            foreach (array_rand($tagIds, 3) as $tagId) {
+            foreach (array_rand($tagIds, 1) as $tagId) {
                 $taggables[] = [
                     'taggable_id' => $thread->id,
                     'taggable_type' => 'threads',

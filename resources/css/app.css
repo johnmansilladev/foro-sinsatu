@@ -174,8 +174,11 @@ svg .secondary {
 body{
     background-color: #1e293b;
 } */
-@import url('https://fonts.googleapis.com/css2?family=Roboto+Mono:wght@300&display=swap');
 
-.bg-img-banner{
-    background: url("/images/main-banner.jpg");
+.bg-img-banner-dark{
+    background: linear-gradient(0deg, rgba(0,0,0,1), rgba(0,0,0,0.1))
 }
+
+/* .bg-img-banner{
+    background: linear-gradient(0deg, rgba(0,0,0,0), rgba(0,0,0,0))
+} */

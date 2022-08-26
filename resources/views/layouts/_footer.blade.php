@@ -1,4 +1,4 @@
-<footer class="p-4 bg-white shadow md:px-6 md:py-8 dark:bg-black">
+<footer class="p-4 bg-black shadow md:px-6 md:py-8 dark:bg-black">
     <div class="sm:flex sm:items-center sm:justify-between">
         <a href="#" class="flex items-center mb-4 sm:mb-0">
             <!-- <img src="https://flowbite.com/docs/images/logo.svg" class="mr-3 h-8" alt="Flowbite Logo">-->
