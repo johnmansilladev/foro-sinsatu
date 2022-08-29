@@ -3,7 +3,7 @@
     @section('body')
     @include('layouts._alerts')
     <section>
-        <div class="px-24 mx-3">
+        <div class="px-24 mx-3 hidden">
             <img src="{{asset('images/main-banner.jpg')}}" class="rounded" alt="main-banner">
         </div>
     </section>
@@ -12,14 +12,14 @@
             <div class="w-full w-3/12 mx-3 px-3">
                 <a href="{{ route('login') }}">
                     <button type="button" class="w-full text-white bg-gradient-to-r from-blue-500 via-blue-600 to-blue-700 hover:bg-gradient-to-br focus:ring-4 focus:outline-none focus:ring-blue-300 dark:focus:ring-blue-800 
-                        shadow-lg shadow-blue-500/50 dark:shadow-lg dark:shadow-blue-800/80 font-medium rounded-lg text-sm px-5 py-2.5 text-center mr-2 mb-2 ">Start a discussion</button>
+                        shadow-lg shadow-blue-500/50 dark:shadow-lg dark:shadow-blue-800/80 font-medium rounded-lg text-sm px-5 py-2.5 text-center mr-2 mb-2 transition ease-in-out delay-150 hover:scale-105">Start a discussion</button>
                 </a>
                 <a href="{{ route('login') }}">
                     <button type="button" class="w-full text-white bg-gradient-to-r from-teal-400 via-teal-500 to-teal-600 hover:bg-gradient-to-br focus:ring-4 focus:outline-none focus:ring-teal-300 dark:focus:ring-teal-800 
-                    font-medium rounded-lg text-sm px-5 py-2.5 text-center mr-2 mb-2">Write a article</button>
+                    font-medium rounded-lg text-sm px-5 py-2.5 text-center mr-2 mb-2 transition ease-in-out delay-150 hover:scale-105">Write a article</button>
                 </a>
             </div>
-            <div class="w-full w-9/12 mx-3">
+            <div class="w-full w-9/12 mr-3">
 
                 <form>
                     <label for="default-search" class="mb-2 text-sm font-medium text-gray-900 sr-only dark:text-gray-300">Search</label>
@@ -38,8 +38,7 @@
             </div>
         </div>
         <div class="w-full px-24 py-2 flex">
-
-            <div class="w-full w-3/12 mx-3">
+            <div class="w-full w-3/12 ml-3">
                 <div class="w-full max-w-sm bg-white rounded-lg border shadow-md sm:p-6 mx-auto px-4 sm:px-6 lg:px-6 bg-white rounded-lg border shadow-md sm:p-6 dark:bg-slate-800 dark:border-slate-800">
                     <h1 class="text-gray-800 dark:text-white text-center">Topics</h1>
                     <ul class="my-4 space-y-3">
@@ -109,57 +108,602 @@
                     </ul>
                 </div>
             </div>
-            <div class="w-full w-9/12 mx-3">
-
-                <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 bg-white rounded-lg border shadow-md sm:p-6 dark:bg-slate-800 dark:border-slate-800">
-
-                    <h5 class="mb-3 text-base font-semibold text-gray-800 md:text-xl dark:text-white">
-                        Last threads
-                    </h5>
-
-                     
-                        <div class="rounded container mx-auto">
-                            
-                            <div class="w-1/8 items-center flex flex-column">
-                                <img class="rounded-full" src="{{ asset('images/user-fallback.png') }}" alt="Avatar of user" style="width: 50px; height: 50px;">
-                                <div class="text-sm mt-4 tex-center">
-                                    <p class="text-gray-900 hover:text-blue-700 dark:text-gray-300 dark:hover:text-blue-500">@jmansilla</p>
-                                </div>
-                            </div>
-
-                            <div class="w-5/8 bg-inherit rounded-b lg:rounded-b-none lg:rounded-r px-4 flex flex-col justify-between leading-normal">
-                                <div class="ml-8">
-                                    <p class="text-sm text-gray-500 flex items-center">
-                                    <ion-icon name="calendar-sharp" class="mr-2"></ion-icon>
-                                        2 August 2022
-                                    </p>
-                                    <div class="text-gray-900 font-bold text-xl mb-2 dark:text-white">Best Mountain Trails 2020</div>
-                                    <p class="text-gray-700 text-base dark:text-gray-300">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Voluptatibus quia, nulla! Maiores et perferendis eaque, exercitationem praesentium nihil.</p>
-                                </div>
-                            </div>
-
-                            <div class="w-2/8 flex items-center">
-                                <div class="flex flex-col">
-                                    <div class="item-center">
-                                        
-                                        <ion-icon name="chatbubble-ellipses-sharp" class="dark:text-white"></ion-icon>
-                                        <span>replies</span>
-                                    </div>
-                                    <div >
-                                        <span>12 replies</span>
-                                        <ion-icon name="chatbubble-ellipses-sharp"></ion-icon>
-                                    </div>
-                                    <div>
-                                        <span>12 replies</span>
-                                        <ion-icon name="chatbubble-ellipses-sharp"></ion-icon>
+            <div class="w-9/12 mx-3 mx-auto sm:px-6 lg:px-8 bg-white rounded-lg border shadow-md sm:p-6 rounded dark:bg-slate-800 dark:border-slate-800">
+                <div class="flex justify-between items-center mb-4">
+                    <h5 class="text-xl font-bold leading-none text-gray-900 dark:text-white">Latest threads</h5>
+                </div>
+                <div class="flow-root">
+                    <ul role="list" class="divide-y divide-gray-200 dark:divide-gray-700">
+                        <li class="py-3 sm:py-4">
+                            <div class="grid grid-cols-12 gap-6">
+                                <div class="col-span-1 flex flex-col items-center">
+                                    <img class="rounded-full" src="{{ asset('images/user-fallback.png') }}" alt="Avatar of user" style="width: 30px; height: 30px;">
+                                    <div class="text-sm mt-2 tex-center">
+                                        <p class="text-gray-900 hover:text-blue-700 dark:text-gray-300 dark:hover:text-blue-500">@jmansilla</p>
                                     </div>
                                 </div>
+                                <div class="col-span-6">
+                                    <div class="">
+                                        <div class="text-gray-900 font-bold text-md dark:text-white">
+                                            Best Mountain Trails 2020
+                                            <span class="text-sm text-gray-500">
+                                                <ion-icon name="calendar-sharp" class="ml-2 mr-1 text-xs"></ion-icon>2 August 2022
+                                            </span>
+                                        </div>
+                                        <p class="text-gray-700 text-sm dark:text-gray-300">
+                                            Lorem ipsum dolor sit amet, consectetur adipisicing elit.
+                                        </p>
+                                    </div>
+                                </div>
+                                <div class="col-span-2">
+                                    <div class="flex flex-col">
+                                        <div class="item-center">
+                                            <ion-icon name="chatbubble-ellipses-sharp" class="dark:text-white"></ion-icon>
+                                            <span class="dark:text-gray-300">12</span>
+                                        </div>
+                                        <div>
+                                            <ion-icon name="eye-sharp" class="dark:text-white"></ion-icon>
+                                            <span class="dark:text-gray-300">246</span>
+                                        </div>
+                                        <div>
+                                            <ion-icon name="thumbs-up-sharp" class="dark:text-white"></ion-icon>
+                                            <span class="dark:text-gray-300">1684</span>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-span-3">
+                                    <div class="flex flex-col">
+                                        <div class="item-center">
+                                            <span class="dark:text-gray-300">Last post by Vladimir RU</span>
+                                        </div>
+                                        <div>
+                                            <p class="text-base text-gray-500 flex items-center">
+                                                Man eol programming
+                                            </p>
+                                        </div>
+                                        <div>
+                                            <p class="text-base text-gray-500 flex items-center">
+                                                <ion-icon name="calendar-sharp" class="mr-2 text-xs"></ion-icon>
+                                                29 August 2022
+                                            </p>
+                                        </div>
+                                    </div>
+                                </div>
                             </div>
-                            
-                        </div>
-                    
+                        </li>
+                        <li class="py-3 sm:py-4">
+                            <div class="grid grid-cols-12 gap-6">
+                                <div class="col-span-1 flex flex-col items-center">
+                                    <img class="rounded-full" src="{{ asset('images/user-fallback.png') }}" alt="Avatar of user" style="width: 30px; height: 30px;">
+                                    <div class="text-sm mt-2 tex-center">
+                                        <p class="text-gray-900 hover:text-blue-700 dark:text-gray-300 dark:hover:text-blue-500">@jmansilla</p>
+                                    </div>
+                                </div>
+                                <div class="col-span-6">
+                                    <div class="">
+                                        <div class="text-gray-900 font-bold text-md dark:text-white">
+                                            Best Mountain Trails 2020
+                                            <span class="text-sm text-gray-500">
+                                                <ion-icon name="calendar-sharp" class="ml-2 mr-1 text-xs"></ion-icon>2 August 2022
+                                            </span>
+                                        </div>
+                                        <p class="text-gray-700 text-sm dark:text-gray-300">
+                                            Lorem ipsum dolor sit amet, consectetur adipisicing elit.
+                                        </p>
+                                    </div>
+                                </div>
+                                <div class="col-span-2">
+                                    <div class="flex flex-col">
+                                        <div class="item-center">
+                                            <ion-icon name="chatbubble-ellipses-sharp" class="dark:text-white"></ion-icon>
+                                            <span class="dark:text-gray-300">12</span>
+                                        </div>
+                                        <div>
+                                            <ion-icon name="eye-sharp" class="dark:text-white"></ion-icon>
+                                            <span class="dark:text-gray-300">246</span>
+                                        </div>
+                                        <div>
+                                            <ion-icon name="thumbs-up-sharp" class="dark:text-white"></ion-icon>
+                                            <span class="dark:text-gray-300">1684</span>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-span-3">
+                                    <div class="flex flex-col">
+                                        <div class="item-center">
+                                            <span class="dark:text-gray-300">Last post by Vladimir RU</span>
+                                        </div>
+                                        <div>
+                                            <p class="text-base text-gray-500 flex items-center">
+                                                Man eol programming
+                                            </p>
+                                        </div>
+                                        <div>
+                                            <p class="text-base text-gray-500 flex items-center">
+                                                <ion-icon name="calendar-sharp" class="mr-2 text-xs"></ion-icon>
+                                                29 August 2022
+                                            </p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </li>
+                        <li class="py-3 sm:py-4">
+                            <div class="grid grid-cols-12 gap-6">
+                                <div class="col-span-1 flex flex-col items-center">
+                                    <img class="rounded-full" src="{{ asset('images/user-fallback.png') }}" alt="Avatar of user" style="width: 30px; height: 30px;">
+                                    <div class="text-sm mt-2 tex-center">
+                                        <p class="text-gray-900 hover:text-blue-700 dark:text-gray-300 dark:hover:text-blue-500">@jmansilla</p>
+                                    </div>
+                                </div>
+                                <div class="col-span-6">
+                                    <div class="">
+                                        <div class="text-gray-900 font-bold text-md dark:text-white">
+                                            Best Mountain Trails 2020
+                                            <span class="text-sm text-gray-500">
+                                                <ion-icon name="calendar-sharp" class="ml-2 mr-1 text-xs"></ion-icon>2 August 2022
+                                            </span>
+                                        </div>
+                                        <p class="text-gray-700 text-sm dark:text-gray-300">
+                                            Lorem ipsum dolor sit amet, consectetur adipisicing elit.
+                                        </p>
+                                    </div>
+                                </div>
+                                <div class="col-span-2">
+                                    <div class="flex flex-col">
+                                        <div class="item-center">
+                                            <ion-icon name="chatbubble-ellipses-sharp" class="dark:text-white"></ion-icon>
+                                            <span class="dark:text-gray-300">12</span>
+                                        </div>
+                                        <div>
+                                            <ion-icon name="eye-sharp" class="dark:text-white"></ion-icon>
+                                            <span class="dark:text-gray-300">246</span>
+                                        </div>
+                                        <div>
+                                            <ion-icon name="thumbs-up-sharp" class="dark:text-white"></ion-icon>
+                                            <span class="dark:text-gray-300">1684</span>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-span-3">
+                                    <div class="flex flex-col">
+                                        <div class="item-center">
+                                            <span class="dark:text-gray-300">Last post by Vladimir RU</span>
+                                        </div>
+                                        <div>
+                                            <p class="text-base text-gray-500 flex items-center">
+                                                Man eol programming
+                                            </p>
+                                        </div>
+                                        <div>
+                                            <p class="text-base text-gray-500 flex items-center">
+                                                <ion-icon name="calendar-sharp" class="mr-2 text-xs"></ion-icon>
+                                                29 August 2022
+                                            </p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </li>
+                        <li class="py-3 sm:py-4">
+                            <div class="grid grid-cols-12 gap-6">
+                                <div class="col-span-1 flex flex-col items-center">
+                                    <img class="rounded-full" src="{{ asset('images/user-fallback.png') }}" alt="Avatar of user" style="width: 30px; height: 30px;">
+                                    <div class="text-sm mt-2 tex-center">
+                                        <p class="text-gray-900 hover:text-blue-700 dark:text-gray-300 dark:hover:text-blue-500">@jmansilla</p>
+                                    </div>
+                                </div>
+                                <div class="col-span-6">
+                                    <div class="">
+                                        <div class="text-gray-900 font-bold text-md dark:text-white">
+                                            Best Mountain Trails 2020
+                                            <span class="text-sm text-gray-500">
+                                                <ion-icon name="calendar-sharp" class="ml-2 mr-1 text-xs"></ion-icon>2 August 2022
+                                            </span>
+                                        </div>
+                                        <p class="text-gray-700 text-sm dark:text-gray-300">
+                                            Lorem ipsum dolor sit amet, consectetur adipisicing elit.
+                                        </p>
+                                    </div>
+                                </div>
+                                <div class="col-span-2">
+                                    <div class="flex flex-col">
+                                        <div class="item-center">
+                                            <ion-icon name="chatbubble-ellipses-sharp" class="dark:text-white"></ion-icon>
+                                            <span class="dark:text-gray-300">12</span>
+                                        </div>
+                                        <div>
+                                            <ion-icon name="eye-sharp" class="dark:text-white"></ion-icon>
+                                            <span class="dark:text-gray-300">246</span>
+                                        </div>
+                                        <div>
+                                            <ion-icon name="thumbs-up-sharp" class="dark:text-white"></ion-icon>
+                                            <span class="dark:text-gray-300">1684</span>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-span-3">
+                                    <div class="flex flex-col">
+                                        <div class="item-center">
+                                            <span class="dark:text-gray-300">Last post by Vladimir RU</span>
+                                        </div>
+                                        <div>
+                                            <p class="text-base text-gray-500 flex items-center">
+                                                Man eol programming
+                                            </p>
+                                        </div>
+                                        <div>
+                                            <p class="text-base text-gray-500 flex items-center">
+                                                <ion-icon name="calendar-sharp" class="mr-2 text-xs"></ion-icon>
+                                                29 August 2022
+                                            </p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </li>
+                        <li class="py-3 sm:py-4">
+                            <div class="grid grid-cols-12 gap-6">
+                                <div class="col-span-1 flex flex-col items-center">
+                                    <img class="rounded-full" src="{{ asset('images/user-fallback.png') }}" alt="Avatar of user" style="width: 30px; height: 30px;">
+                                    <div class="text-sm mt-2 tex-center">
+                                        <p class="text-gray-900 hover:text-blue-700 dark:text-gray-300 dark:hover:text-blue-500">@jmansilla</p>
+                                    </div>
+                                </div>
+                                <div class="col-span-6">
+                                    <div class="">
+                                        <div class="text-gray-900 font-bold text-md dark:text-white">
+                                            Best Mountain Trails 2020
+                                            <span class="text-sm text-gray-500">
+                                                <ion-icon name="calendar-sharp" class="ml-2 mr-1 text-xs"></ion-icon>2 August 2022
+                                            </span>
+                                        </div>
+                                        <p class="text-gray-700 text-sm dark:text-gray-300">
+                                            Lorem ipsum dolor sit amet, consectetur adipisicing elit.
+                                        </p>
+                                    </div>
+                                </div>
+                                <div class="col-span-2">
+                                    <div class="flex flex-col">
+                                        <div class="item-center">
+                                            <ion-icon name="chatbubble-ellipses-sharp" class="dark:text-white"></ion-icon>
+                                            <span class="dark:text-gray-300">12</span>
+                                        </div>
+                                        <div>
+                                            <ion-icon name="eye-sharp" class="dark:text-white"></ion-icon>
+                                            <span class="dark:text-gray-300">246</span>
+                                        </div>
+                                        <div>
+                                            <ion-icon name="thumbs-up-sharp" class="dark:text-white"></ion-icon>
+                                            <span class="dark:text-gray-300">1684</span>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-span-3">
+                                    <div class="flex flex-col">
+                                        <div class="item-center">
+                                            <span class="dark:text-gray-300">Last post by Vladimir RU</span>
+                                        </div>
+                                        <div>
+                                            <p class="text-base text-gray-500 flex items-center">
+                                                Man eol programming
+                                            </p>
+                                        </div>
+                                        <div>
+                                            <p class="text-base text-gray-500 flex items-center">
+                                                <ion-icon name="calendar-sharp" class="mr-2 text-xs"></ion-icon>
+                                                29 August 2022
+                                            </p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </li>
+                        <li class="py-3 sm:py-4">
+                            <div class="grid grid-cols-12 gap-6">
+                                <div class="col-span-1 flex flex-col items-center">
+                                    <img class="rounded-full" src="{{ asset('images/user-fallback.png') }}" alt="Avatar of user" style="width: 30px; height: 30px;">
+                                    <div class="text-sm mt-2 tex-center">
+                                        <p class="text-gray-900 hover:text-blue-700 dark:text-gray-300 dark:hover:text-blue-500">@jmansilla</p>
+                                    </div>
+                                </div>
+                                <div class="col-span-6">
+                                    <div class="">
+                                        <div class="text-gray-900 font-bold text-md dark:text-white">
+                                            Best Mountain Trails 2020
+                                            <span class="text-sm text-gray-500">
+                                                <ion-icon name="calendar-sharp" class="ml-2 mr-1 text-xs"></ion-icon>2 August 2022
+                                            </span>
+                                        </div>
+                                        <p class="text-gray-700 text-sm dark:text-gray-300">
+                                            Lorem ipsum dolor sit amet, consectetur adipisicing elit.
+                                        </p>
+                                    </div>
+                                </div>
+                                <div class="col-span-2">
+                                    <div class="flex flex-col">
+                                        <div class="item-center">
+                                            <ion-icon name="chatbubble-ellipses-sharp" class="dark:text-white"></ion-icon>
+                                            <span class="dark:text-gray-300">12</span>
+                                        </div>
+                                        <div>
+                                            <ion-icon name="eye-sharp" class="dark:text-white"></ion-icon>
+                                            <span class="dark:text-gray-300">246</span>
+                                        </div>
+                                        <div>
+                                            <ion-icon name="thumbs-up-sharp" class="dark:text-white"></ion-icon>
+                                            <span class="dark:text-gray-300">1684</span>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-span-3">
+                                    <div class="flex flex-col">
+                                        <div class="item-center">
+                                            <span class="dark:text-gray-300">Last post by Vladimir RU</span>
+                                        </div>
+                                        <div>
+                                            <p class="text-base text-gray-500 flex items-center">
+                                                Man eol programming
+                                            </p>
+                                        </div>
+                                        <div>
+                                            <p class="text-base text-gray-500 flex items-center">
+                                                <ion-icon name="calendar-sharp" class="mr-2 text-xs"></ion-icon>
+                                                29 August 2022
+                                            </p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </li>
+                    </ul>
                 </div>
             </div>
+            <!-- <div class="w-full w-3/12 mx-3">
+                <div class="p-4 w-full max-w-md bg-white rounded-lg border shadow-md sm:p-8 dark:bg-slate-800 dark:border-slate-800">
+                    <div class="flex justify-between items-center mb-4">
+                        <h5 class="text-xl font-bold leading-none text-slate-900 dark:text-white">Top members</h5>
+                        <a href="#" class="text-sm font-medium text-blue-600 hover:underline dark:text-blue-500">
+                            View all
+                        </a>
+                    </div>
+                    <div class="flow-root">
+                        <ul role="list" class="divide-y divide-gray-200 dark:divide-gray-700">
+                            <li class="py-3 sm:py-4">
+                                <div class="flex items-center space-x-4">
+                                    <div class="flex-shrink-0">
+                                    <img class="rounded-full" src="{{ asset('images/user-fallback.png') }}" alt="Avatar of user" style="width: 30px; height: 30px;">
+                                    </div>
+                                    <div class="flex-1 min-w-0">
+                                        <p class="text-sm font-medium text-gray-900 truncate dark:text-white">
+                                            Neil Sims
+                                        </p>
+                                        <p class="text-sm text-gray-500 truncate dark:text-gray-400">
+                                            email@windster.com
+                                        </p>
+                                    </div>
+                                    <div class="inline-flex items-center text-base font-semibold text-gray-900 dark:text-white">
+                                        $320
+                                    </div>
+                                </div>
+                            </li>
+                            <li class="py-3 sm:py-4">
+                                <div class="flex items-center space-x-4">
+                                    <div class="flex-shrink-0">
+                                    <img class="rounded-full" src="{{ asset('images/user-fallback.png') }}" alt="Avatar of user" style="width: 30px; height: 30px;">
+                                    </div>
+                                    <div class="flex-1 min-w-0">
+                                        <p class="text-sm font-medium text-gray-900 truncate dark:text-white">
+                                            Bonnie Green
+                                        </p>
+                                        <p class="text-sm text-gray-500 truncate dark:text-gray-400">
+                                            email@windster.com
+                                        </p>
+                                    </div>
+                                    <div class="inline-flex items-center text-base font-semibold text-gray-900 dark:text-white">
+                                        $3467
+                                    </div>
+                                </div>
+                            </li>
+                            <li class="py-3 sm:py-4">
+                                <div class="flex items-center space-x-4">
+                                    <div class="flex-shrink-0">
+                                    <img class="rounded-full" src="{{ asset('images/user-fallback.png') }}" alt="Avatar of user" style="width: 30px; height: 30px;">
+                                    </div>
+                                    <div class="flex-1 min-w-0">
+                                        <p class="text-sm font-medium text-gray-900 truncate dark:text-white">
+                                            Michael Gough
+                                        </p>
+                                        <p class="text-sm text-gray-500 truncate dark:text-gray-400">
+                                            email@windster.com
+                                        </p>
+                                    </div>
+                                    <div class="inline-flex items-center text-base font-semibold text-gray-900 dark:text-white">
+                                        $67
+                                    </div>
+                                </div>
+                            </li>
+                            <li class="py-3 sm:py-4">
+                                <div class="flex items-center space-x-4">
+                                    <div class="flex-shrink-0">
+                                    <img class="rounded-full" src="{{ asset('images/user-fallback.png') }}" alt="Avatar of user" style="width: 30px; height: 30px;">
+                                    </div>
+                                    <div class="flex-1 min-w-0">
+                                        <p class="text-sm font-medium text-gray-900 truncate dark:text-white">
+                                            Lana Byrd
+                                        </p>
+                                        <p class="text-sm text-gray-500 truncate dark:text-gray-400">
+                                            email@windster.com
+                                        </p>
+                                    </div>
+                                    <div class="inline-flex items-center text-base font-semibold text-gray-900 dark:text-white">
+                                        $367
+                                    </div>
+                                </div>
+                            </li>
+                            <li class="pt-3 sm:py-4">
+                                <div class="flex items-center space-x-4">
+                                    <div class="flex-shrink-0">
+                                    <img class="rounded-full" src="{{ asset('images/user-fallback.png') }}" alt="Avatar of user" style="width: 30px; height: 30px;">
+                                    </div>
+                                    <div class="flex-1 min-w-0">
+                                        <p class="text-sm font-medium text-gray-900 truncate dark:text-white">
+                                            Thomes Lean
+                                        </p>
+                                        <p class="text-sm text-gray-500 truncate dark:text-gray-400">
+                                            email@windster.com
+                                        </p>
+                                    </div>
+                                    <div class="inline-flex items-center text-base font-semibold text-gray-900 dark:text-white">
+                                        $2367
+                                    </div>
+                                </div>
+                            </li>
+                            <li class="pt-3 pb-0 sm:pt-4">
+                                <div class="flex items-center space-x-4">
+                                    <div class="flex-shrink-0">
+                                    <img class="rounded-full" src="{{ asset('images/user-fallback.png') }}" alt="Avatar of user" style="width: 30px; height: 30px;">
+                                    </div>
+                                    <div class="flex-1 min-w-0">
+                                        <p class="text-sm font-medium text-gray-900 truncate dark:text-white">
+                                            Thomes Lean
+                                        </p>
+                                        <p class="text-sm text-gray-500 truncate dark:text-gray-400">
+                                            email@windster.com
+                                        </p>
+                                    </div>
+                                    <div class="inline-flex items-center text-base font-semibold text-gray-900 dark:text-white">
+                                        $2367
+                                    </div>
+                                </div>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+
+
+                <div class="p-4 w-full max-w-md bg-white rounded-lg border shadow-md sm:p-8 dark:bg-slate-800 dark:border-slate-800">
+                    <div class="flex justify-between items-center mb-4">
+                        <h5 class="text-xl font-bold leading-none text-slate-900 dark:text-white">Read top articles</h5>
+                        <a href="#" class="text-sm font-medium text-blue-600 hover:underline dark:text-blue-500">
+                            View all
+                        </a>
+                    </div>
+                    <div class="flow-root">
+                        <ul role="list" class="divide-y divide-gray-200 dark:divide-gray-700">
+                            <li class="py-3 sm:py-4">
+                                <div class="flex items-center space-x-4">
+                                    <div class="flex-shrink-0">
+                                    <img class="rounded-full" src="{{ asset('images/user-fallback.png') }}" alt="Avatar of user" style="width: 30px; height: 30px;">
+                                    </div>
+                                    <div class="flex-1 min-w-0">
+                                        <p class="text-sm font-medium text-gray-900 truncate dark:text-white">
+                                            Neil Sims
+                                        </p>
+                                        <p class="text-sm text-gray-500 truncate dark:text-gray-400">
+                                            email@windster.com
+                                        </p>
+                                    </div>
+                                    <div class="inline-flex items-center text-base font-semibold text-gray-900 dark:text-white">
+                                        $320
+                                    </div>
+                                </div>
+                            </li>
+                            <li class="py-3 sm:py-4">
+                                <div class="flex items-center space-x-4">
+                                    <div class="flex-shrink-0">
+                                    <img class="rounded-full" src="{{ asset('images/user-fallback.png') }}" alt="Avatar of user" style="width: 30px; height: 30px;">
+                                    </div>
+                                    <div class="flex-1 min-w-0">
+                                        <p class="text-sm font-medium text-gray-900 truncate dark:text-white">
+                                            Bonnie Green
+                                        </p>
+                                        <p class="text-sm text-gray-500 truncate dark:text-gray-400">
+                                            email@windster.com
+                                        </p>
+                                    </div>
+                                    <div class="inline-flex items-center text-base font-semibold text-gray-900 dark:text-white">
+                                        $3467
+                                    </div>
+                                </div>
+                            </li>
+                            <li class="py-3 sm:py-4">
+                                <div class="flex items-center space-x-4">
+                                    <div class="flex-shrink-0">
+                                    <img class="rounded-full" src="{{ asset('images/user-fallback.png') }}" alt="Avatar of user" style="width: 30px; height: 30px;">
+                                    </div>
+                                    <div class="flex-1 min-w-0">
+                                        <p class="text-sm font-medium text-gray-900 truncate dark:text-white">
+                                            Michael Gough
+                                        </p>
+                                        <p class="text-sm text-gray-500 truncate dark:text-gray-400">
+                                            email@windster.com
+                                        </p>
+                                    </div>
+                                    <div class="inline-flex items-center text-base font-semibold text-gray-900 dark:text-white">
+                                        $67
+                                    </div>
+                                </div>
+                            </li>
+                            <li class="py-3 sm:py-4">
+                                <div class="flex items-center space-x-4">
+                                    <div class="flex-shrink-0">
+                                    <img class="rounded-full" src="{{ asset('images/user-fallback.png') }}" alt="Avatar of user" style="width: 30px; height: 30px;">
+                                    </div>
+                                    <div class="flex-1 min-w-0">
+                                        <p class="text-sm font-medium text-gray-900 truncate dark:text-white">
+                                            Lana Byrd
+                                        </p>
+                                        <p class="text-sm text-gray-500 truncate dark:text-gray-400">
+                                            email@windster.com
+                                        </p>
+                                    </div>
+                                    <div class="inline-flex items-center text-base font-semibold text-gray-900 dark:text-white">
+                                        $367
+                                    </div>
+                                </div>
+                            </li>
+                            <li class="pt-3 sm:py-4">
+                                <div class="flex items-center space-x-4">
+                                    <div class="flex-shrink-0">
+                                    <img class="rounded-full" src="{{ asset('images/user-fallback.png') }}" alt="Avatar of user" style="width: 30px; height: 30px;">
+                                    </div>
+                                    <div class="flex-1 min-w-0">
+                                        <p class="text-sm font-medium text-gray-900 truncate dark:text-white">
+                                            Thomes Lean
+                                        </p>
+                                        <p class="text-sm text-gray-500 truncate dark:text-gray-400">
+                                            email@windster.com
+                                        </p>
+                                    </div>
+                                    <div class="inline-flex items-center text-base font-semibold text-gray-900 dark:text-white">
+                                        $2367
+                                    </div>
+                                </div>
+                            </li>
+                            <li class="pt-3 pb-0 sm:pt-4">
+                                <div class="flex items-center space-x-4">
+                                    <div class="flex-shrink-0">
+                                    <img class="rounded-full" src="{{ asset('images/user-fallback.png') }}" alt="Avatar of user" style="width: 30px; height: 30px;">
+                                    </div>
+                                    <div class="flex-1 min-w-0">
+                                        <p class="text-sm font-medium text-gray-900 truncate dark:text-white">
+                                            Thomes Lean
+                                        </p>
+                                        <p class="text-sm text-gray-500 truncate dark:text-gray-400">
+                                            email@windster.com
+                                        </p>
+                                    </div>
+                                    <div class="inline-flex items-center text-base font-semibold text-gray-900 dark:text-white">
+                                        $2367
+                                    </div>
+                                </div>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+
+            </div> -->
     </section>
     <section class="pt-8 flex text-center">
         <!-- <div class="w-full p-4 ml-3 bg-white rounded-lg md:p-8 dark:bg-slate-800" style="background: linear-gradient(0deg, rgba(0,0,0,0.95), rgba(0,0,0,0.2)),url('images/main-banner.jpg') no-repeat;"> -->

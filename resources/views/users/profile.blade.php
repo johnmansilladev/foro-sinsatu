@@ -71,14 +71,14 @@
                     <x-buttons.secondary-button class="w-full" @click.prevent="activeModal = 'unblockUser'">
                         <span class="flex items-center gap-x-2">
                             <x-heroicon-o-check class="w-5 h-5" />
-                            Desbloquear usuario
+                            Unblock user
                         </span>
                     </x-buttons.secondary-button>
                     @else
                     <x-buttons.danger-button class="w-full" @click.prevent="activeModal = 'blockUser'">
                         <span class="flex items-center gap-x-2">
                             <x-heroicon-o-x class="w-5 h-5" />
-                            Bloquear usuario
+                            Block user
                         </span>
                     </x-buttons.danger-button>
                     @endif
@@ -89,14 +89,14 @@
                     <x-buttons.secondary-button class="w-full" @click.prevent="activeModal = 'unbanUser'">
                         <span class="flex items-center gap-x-2">
                             <x-heroicon-o-check class="w-5 h-5" />
-                            Quitar ban a usuario
+                            Quit ban
                         </span>
                     </x-buttons.secondary-button>
                     @else
                     <x-buttons.danger-button class="w-full" @click.prevent="activeModal = 'banUser'">
                         <span class="flex items-center gap-x-2">
                             <x-icon-hammer class="w-5 h-5" />
-                            Banear usuario
+                            Ban user
                         </span>
                     </x-buttons.danger-button>
                     @endif
@@ -106,26 +106,26 @@
 
             <div class="w-full lg:w-2/3">
                 <h2 class="text-3xl font-semibold text-gray-900 bg-gray-100 dark:bg-inherit dark:text-white">
-                    Estadísticas
+                    Statistics
                 </h2>
 
                 <div class="mt-4 grid grid-cols-1 lg:grid-cols-2">
                     <div class="w-full flex justify-between px-5 py-2.5 bg-slate-100">
-                        <span>Hilos</span>
+                        <span>Threads</span>
                         <span class="text-lio-500">
                             {{ number_format($user->countThreads()) }}
                         </span>
                     </div>
 
                     <div class="w-full flex justify-between px-5 py-2.5 bg-white lg:bg-slate-100">
-                        <span>Respuestas</span>
+                        <span>Replies</span>
                         <span class="text-lio-500">
                             {{ number_format($user->countReplies()) }}
                         </span>
                     </div>
 
                     <div class="w-full flex justify-between px-5 py-2.5 bg-slate-100 lg:bg-white">
-                        <span>Soluciones</span>
+                        <span>Solutions</span>
                         <span class="text-lio-500">
                             {{ number_format($user->countSolutions()) }}
                         </span>
@@ -166,11 +166,11 @@
             <nav class="flex items-center justify-between lg:justify-start">
                 <button @click="tab = 'threads'" :class="{ 'text-blue-500 border-blue-500 border-b-2': tab === 'threads' }"  
                 class="px-4 whitespace-nowrap py-5 font-medium text-lg text-gray-500 hover:text-blue-500 hover:border-blue-500 focus:outline-none focus:text-blue-500 focus:border-blue-500 lg:w-1/3">
-                    Hilos posteados
+                    Posted threads
                 </button>
                 <button @click="tab = 'replies'" :class="{ 'text-blue-500 border-blue-500 border-b-2': tab === 'replies' }"  
                 class="px-4 whitespace-nowrap py-5 font-medium text-lg text-gray-500 hover:text-blue-500 hover:border-blue-500 focus:outline-none focus:text-blue-500 focus:border-blue-500 lg:w-1/3">
-                    Respuestas posteadas
+                    Posted replies
                 </button>
             </nav>
         </div>
@@ -192,11 +192,11 @@
     @can(App\Policies\UserPolicy::BLOCK, $user)
         @if (Auth::user()->hasBlocked($user))
         <x-modal identifier="unblockUser" :action="route('users.unblock', $user->username())" title="Desbloquear {{ $user->username() }}" type="update">
-            <p>Si desbloqueas a este usuario, podrás volver a mencionarlo en los hilos y respuestas.</p>
+            <p>If you unblock this user, you will be able to mention him/her again in threads and replies.</p>
         </x-modal>
         @else
         <x-modal identifier="blockUser" :action="route('users.block', $user->username())" title="Bloquear {{ $user->username() }}" type="update">
-            <p>Al bloquear a este usuario se le impedirá que te mencione en hilos y respuestas. El usuario no será notificado de que lo has bloqueado.</p>
+            <p>Blocking this user will prevent them from mentioning you in threads and replies. The user will not be notified that you have blocked them.</p>
         </x-modal>
         @endif
     @endcan
@@ -204,11 +204,11 @@
     @can(App\Policies\UserPolicy::BAN, $user)
         @if ($user->isBanned())
         <x-modal identifier="unbanUser" :action="route('admin.users.unban', $user->username())" title="Quitar ban {{ $user->username() }}" type="update">
-            <p>Desbanear a este usuario le permitirá volver a conectarse y publicar contenido.</p>
+            <p>Unbanning this user will allow him/her to log back in and post content.</p>
         </x-modal>
         @else
         <x-modal identifier="banUser" :action="route('admin.users.ban', $user->username())" title="Banear {{ $user->username() }}" type="update">
-            <p>Banear a este usuario le impedirá conectarse, publicar hilos y responder a hilos.</p>
+            <p>Banning this user will prevent him/her from logging in, posting threads and replying to threads.</p>
         </x-modal>
         @endif
     @endcan

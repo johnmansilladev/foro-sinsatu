@@ -6,10 +6,10 @@
             <div class="bg-white py-6 px-4 space-y-6 sm:p-6">
                 <div>
                     <h2 id="profile_settings_heading" class="text-lg leading-6 font-medium text-gray-900">
-                        Perfil
+                        Profile
                     </h2>
                     <p class="mt-1 text-sm leading-5 text-gray-500">
-                        Actualiza tu información
+                        Update info
                     </p>
                 </div>
 
@@ -35,14 +35,14 @@
                             </x-forms.inputs.textarea>
 
                             <span class="mt-2 text-sm text-gray-500">
-                                La biografía del usuario está limitada a 160 caracteres.
+                                The user bio is limited to 160 characters.
                             </span>
                         </div>
                     </div>
 
                     <div class="grow space-y-1 lg:grow-0 lg:shrink-0">
                         <p class="block text-sm leading-5 font-medium text-gray-700" aria-hidden="true">
-                            Foto de perfil
+                            Avatar
                         </p>
 
                         <div class="flex items-center mt-2">
@@ -70,10 +70,10 @@
 
                         @unless(Auth::user()->hasVerifiedEmail())
                             <span class="mt-2 text-sm text-gray-500">
-                                Este email aún no ha sido verificado
+                            This email has not been verified yet
 
                                 <a href="{{ route('verification.notice') }}" class="text-lio-500">
-                                    Reenviar verificacion de email
+                                    Resend email verification
                                 </a>
                             </span>
                         @endunless
@@ -91,7 +91,7 @@
                         <x-forms.inputs.input name="website" :value="Auth::user()->website()" prefix-icon="heroicon-o-globe-alt" />
                     </div>
 
-                    <div class="col-span-12 sm:col-span-6">
+                    <!-- <div class="col-span-12 sm:col-span-6">
                         <x-forms.label for="twitter">Twitter</x-forms.label>
 
                         <x-forms.inputs.input name="twitter" :value="Auth::user()->twitter()" prefix-icon="heroicon-o-at-symbol" class="nav-search" />
@@ -105,7 +105,7 @@
                         <x-forms.label for="LinkedIn">LinkedIn</x-forms.label>
 
                         <x-forms.inputs.input name="linkedIn" prefix-icon="heroicon-o-globe-alt" />
-                    </div>
+                    </div> -->
                 </div>
             </div>
 
